@@ -1,4 +1,4 @@
-Files and Resources and Hypertext
-=================================
+World Wide Web Consortium Interfaces
+====================================
 
-A Farah module.
+A Farah module that contains interfaces for various w3c specs.
