@@ -3,6 +3,7 @@ namespace w3c;
 
 class InterfaceGen
 {
+    const NAMESPACE_SEPARATOR = '\\';
 
     protected $rootPath;
 
@@ -83,15 +84,15 @@ class InterfaceGen
         foreach ($this->interfaceList as $interface) {
             $name = $interface['name'];
             
-            $interfaceBase = NAMESPACE_SEPARATOR;
+            $interfaceBase = self::NAMESPACE_SEPARATOR;
             foreach ($this->interfaceNS as $ns) {
-                $interfaceBase .= $ns . NAMESPACE_SEPARATOR;
+                $interfaceBase .= $ns . self::NAMESPACE_SEPARATOR;
             }
             $interfaceName = $interfaceBase . $name;
             
-            $className = NAMESPACE_SEPARATOR;
+            $className = self::NAMESPACE_SEPARATOR;
             foreach ($this->classNS as $ns) {
-                $className .= $ns . NAMESPACE_SEPARATOR;
+                $className .= $ns . self::NAMESPACE_SEPARATOR;
             }
             $className .= $name;
             
@@ -112,7 +113,7 @@ class InterfaceGen
             $codeList[] = $this->phpProlog;
             $codeList[] = $this->createComment($desc);
             if ($this->interfaceNS) {
-                $codeList[] = sprintf('namespace %s;', implode(NAMESPACE_SEPARATOR, $this->interfaceNS));
+                $codeList[] = sprintf('namespace %s;', implode(self::NAMESPACE_SEPARATOR, $this->interfaceNS));
             }
             $codeList[] = '';
             $codeList[] = sprintf('interface %s {', $name . $extends);
@@ -152,7 +153,7 @@ class InterfaceGen
             $codeList[] = $this->phpProlog;
             $codeList[] = $this->createComment($desc);
             if ($this->classNS) {
-                $codeList[] = sprintf('namespace %s;', implode(NAMESPACE_SEPARATOR, $this->classNS));
+                $codeList[] = sprintf('namespace %s;', implode(self::NAMESPACE_SEPARATOR, $this->classNS));
             }
             $codeList[] = '';
             $codeList[] = sprintf('class %s {', $name . $extends . $implements);
