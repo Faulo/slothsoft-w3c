@@ -16,11 +16,9 @@
         "phpunit\/phpunit": ">=6.0"
     },
     "autoload": {
+        "files": [],
         "psr-0": {
             "w3c\\": "src\/"
-        },
-        "files": [
-            "src\/registerModule.php"
-        ]
+        }
     }
 }
