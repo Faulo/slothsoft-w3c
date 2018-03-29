@@ -1,22 +1,26 @@
 {
-	"name" : "slothsoft/w3c",
-	"description" : "A Farah module that contains interfaces for various w3c specs.",
-	"license" : "WTFPL",
-	"authors" : [{
-			"name" : "Daniel Schulz",
-			"email" : "info.slothsoft@gmail.com"
-		}
-	],
-	"type" : "library",
-	"require" : {
-		"php" : ">=7.0"
-	},
-	"require-dev" : {
-		"phpunit/phpunit" : ">=6.0"
-	},
-	"autoload" : {
-		"psr-0" : {
-			"w3c\\" : "src/"
-		}
-	}
+    "name": "slothsoft\/w3c",
+    "description": "A Farah module that contains interfaces for various w3c specs.",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "Daniel Schulz",
+            "email": "info.slothsoft@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit\/phpunit": ">=6.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "w3c\\": "src\/"
+        },
+        "files": [
+            "src\/registerModule.php"
+        ]
+    }
 }
