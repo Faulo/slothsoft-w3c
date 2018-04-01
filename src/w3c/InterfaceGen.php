@@ -3,6 +3,7 @@ namespace w3c;
 
 class InterfaceGen
 {
+
     const NAMESPACE_SEPARATOR = '\\';
 
     protected $rootPath;
@@ -24,7 +25,8 @@ class InterfaceGen
     protected $currentInterface;
 
     protected $phpProlog = '<?php';
- // chr(239) . chr(187) . chr(191);
+
+    // chr(239) . chr(187) . chr(191);
     protected $phpExtension = '.php';
 
     public function __construct($moduleName, $interfaceURI, $namespace = null)
