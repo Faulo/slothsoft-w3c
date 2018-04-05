@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace w3c;
 
 class InterfaceGen
@@ -24,7 +25,7 @@ class InterfaceGen
 
     protected $currentInterface;
 
-    protected $phpProlog = '<?php';
+    protected $phpProlog = '<' . '?php';
 
     // chr(239) . chr(187) . chr(191);
     protected $phpExtension = '.php';

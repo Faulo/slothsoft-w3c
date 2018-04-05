@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace w3c;
 
 interface XMLHttpRequestEventTarget extends EventTarget
