@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 /**
  * Entity
- * 
+ *
  * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-527DCFF2
  */
 namespace w3c\dom;

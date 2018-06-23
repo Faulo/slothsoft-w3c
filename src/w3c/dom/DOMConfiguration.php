@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 /**
  * DOMConfiguration
- * 
+ *
  * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#DOMConfiguration
  */
 namespace w3c\dom;

@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 /**
  * Notation
- * 
+ *
  * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-5431D1B9
  */
 namespace w3c\dom;
