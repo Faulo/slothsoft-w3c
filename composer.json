@@ -30,7 +30,5 @@
             "tests/"
         ]
     },
-    "classmap-authoritative": false,
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "classmap-authoritative": false
 }
