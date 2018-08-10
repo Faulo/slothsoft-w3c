@@ -3,10 +3,12 @@ declare(strict_types = 1);
 namespace w3c\FileAPI;
 
 /**
+ *
  * @see https://www.w3.org/TR/FileAPI/#dfn-Blob
  */
 interface Blob
 {
+
     /**
      * Returns the size of the byte sequence in number of bytes.
      *
@@ -25,7 +27,7 @@ interface Blob
 
     /**
      * The slice() method returns a new Blob object with bytes ranging from the optional start parameter up to but not including the optional end parameter, and with a type attribute that is the value of the optional contentType parameter.
-     * 
+     *
      * @param int $start
      * @param int $end
      * @param string $contentType

@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 /**
  * UserDataHandler
- * 
+ *
  * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#UserDataHandler
  */
 namespace w3c\dom;

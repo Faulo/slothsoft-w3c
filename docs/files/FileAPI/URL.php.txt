@@ -3,8 +3,9 @@ declare(strict_types = 1);
 namespace w3c\FileAPI;
 
 /**
+ *
  * @see https://www.w3.org/TR/FileAPI/#url
- *      
+ *
  */
 interface URL
 {

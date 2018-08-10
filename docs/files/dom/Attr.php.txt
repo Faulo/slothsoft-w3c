@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 /**
  * Attr
- * 
+ *
  * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-637646024
  */
 namespace w3c\dom;

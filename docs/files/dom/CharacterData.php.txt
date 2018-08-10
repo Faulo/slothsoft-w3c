@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 /**
  * CharacterData
- * 
+ *
  * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-FF21A306
  */
 namespace w3c\dom;
