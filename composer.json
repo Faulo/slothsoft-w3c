@@ -1,5 +1,6 @@
 {
     "name": "slothsoft/w3c",
+    "version": "1.0.0",
     "description": "A Farah module that contains interfaces for various w3c specs.",
     "license": "WTFPL",
     "authors": [
