@@ -7,8 +7,7 @@ namespace w3c\FileAPI;
  * @see https://www.w3.org/TR/FileAPI/#url
  *
  */
-interface URL
-{
+interface URL {
 
     /**
      * Returns a unique Blob URL.

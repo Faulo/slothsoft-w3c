@@ -7,8 +7,7 @@ declare(strict_types = 1);
  */
 namespace w3c\dom;
 
-interface TypeInfo
-{
+interface TypeInfo {
 
     const DERIVATION_RESTRICTION = 0x00000001;
 

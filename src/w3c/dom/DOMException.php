@@ -9,7 +9,6 @@ use Throwable;
  * @author Administrator
  *        
  */
-interface DOMException extends Throwable
-{
+interface DOMException extends Throwable {
 }
 

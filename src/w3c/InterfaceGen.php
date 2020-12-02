@@ -2,8 +2,7 @@
 declare(strict_types = 1);
 namespace w3c;
 
-class InterfaceGen
-{
+class InterfaceGen {
 
     const NAMESPACE_SEPARATOR = '\\';
 
@@ -30,15 +29,14 @@ class InterfaceGen
     // chr(239) . chr(187) . chr(191);
     protected $phpExtension = '.php';
 
-    public function __construct($moduleName, $interfaceURI, $namespace = null)
-    {
+    public function __construct($moduleName, $interfaceURI, $namespace = null) {
         $this->rootPath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
         $this->moduleName = $moduleName;
         $this->interfaceURI = $interfaceURI;
-        
+
         $this->interfacePath = $this->rootPath . $this->interfacePath;
         $this->classPath = $this->rootPath . $this->classPath;
-        
+
         if ($moduleName) {
             $this->interfaceNS = explode('.', $moduleName);
         }
@@ -51,23 +49,22 @@ class InterfaceGen
         foreach ($this->classNS as $ns) {
             $this->classPath .= $ns . DIRECTORY_SEPARATOR;
         }
-        
+
         if (! is_dir($this->interfacePath)) {
             mkdir($this->interfacePath, 0777, true);
         }
         if (! is_dir($this->classPath)) {
             mkdir($this->classPath, 0777, true);
         }
-        
+
         array_unshift($this->interfaceNS, 'w3c');
-        
+
         $this->loadInterfaces();
-        
+
         $this->writeInterfaces();
     }
 
-    protected function loadInterfaces()
-    {
+    protected function loadInterfaces() {
         $this->interfaceList = [];
         $doc = new \DOMDocument();
         $doc->loadHTMLFile($this->interfaceURI);
@@ -81,32 +78,31 @@ class InterfaceGen
         }
     }
 
-    protected function writeInterfaces()
-    {
+    protected function writeInterfaces() {
         ksort($this->interfaceList);
         foreach ($this->interfaceList as $interface) {
             $name = $interface['name'];
-            
+
             $interfaceBase = self::NAMESPACE_SEPARATOR;
             foreach ($this->interfaceNS as $ns) {
                 $interfaceBase .= $ns . self::NAMESPACE_SEPARATOR;
             }
             $interfaceName = $interfaceBase . $name;
-            
+
             $className = self::NAMESPACE_SEPARATOR;
             foreach ($this->classNS as $ns) {
                 $className .= $ns . self::NAMESPACE_SEPARATOR;
             }
             $className .= $name;
-            
+
             $implements = ' implements ' . $interfaceName;
-            
+
             if ($interface['parent']) {
                 $extends = ' extends ' . $interface['parent'];
             } else {
                 $extends = '';
             }
-            
+
             // INTERFACE
             $desc = [];
             $desc[] = $name;
@@ -139,14 +135,14 @@ class InterfaceGen
                 }
             }
             $codeList[] = '}';
-            
+
             $code = implode(PHP_EOL, $codeList);
-            
+
             // echo $code . PHP_EOL . PHP_EOL;
             $path = $this->interfacePath . $name . $this->phpExtension;
             printf('Creating Interface %s (%s)...%s', $interfaceName, $path, PHP_EOL);
             file_put_contents($path, $code);
-            
+
             // CLASS
             $desc = [];
             $desc[] = $name;
@@ -198,9 +194,9 @@ class InterfaceGen
                 }
             }
             $codeList[] = '}';
-            
+
             $code = implode(PHP_EOL, $codeList);
-            
+
             // echo $code . PHP_EOL . PHP_EOL;
             $path = $this->classPath . $name . $this->phpExtension;
             printf('Creating Class %s (%s)...%s', $className, $path, PHP_EOL);
@@ -208,8 +204,7 @@ class InterfaceGen
         }
     }
 
-    public function createInterface($wholeText, $href)
-    {
+    public function createInterface($wholeText, $href) {
         if (strpos($wholeText, 'interface') !== false) {
             $match = [];
             if (preg_match('/interface (\w+)\s*:?\s*(\w*)\s{/', $wholeText, $match)) {
@@ -222,7 +217,7 @@ class InterfaceGen
                 $interface['attr'] = [];
                 $interface['func'] = [];
                 $wholeText = str_replace($match[0], '', $wholeText);
-                
+
                 $textList = explode("\n", trim($wholeText));
                 $lastText = null;
                 foreach ($textList as &$text) {
@@ -262,7 +257,7 @@ class InterfaceGen
                             if (isset($attr['const'])) {
                                 // CONSTANT
                                 $name = array_pop($attr);
-                                
+
                                 $interface['const'][] = sprintf('const %s %s;', $name, $right);
                             } elseif (isset($attr['attribute'])) {
                                 // ATTRIBUTE
@@ -327,8 +322,7 @@ class InterfaceGen
 
     public static $typeList = [];
 
-    protected function createType($type)
-    {
+    protected function createType($type) {
         switch ($type) {
             case 'Attr':
             case 'CDATASection':
@@ -407,8 +401,7 @@ class InterfaceGen
         return $type;
     }
 
-    protected function createHint($type)
-    {
+    protected function createHint($type) {
         switch ($type) {
             case 'array':
                 break;
@@ -423,8 +416,7 @@ class InterfaceGen
         return $type;
     }
 
-    protected function createParam($code)
-    {
+    protected function createParam($code) {
         $paramList = [];
         if (strlen($code)) {
             $code = explode(',', $code);
@@ -438,15 +430,14 @@ class InterfaceGen
                 $name = array_pop($arr);
                 $type = implode(' ', $arr);
                 $type = $this->createType($type);
-                
+
                 $paramList[$name] = $type;
             }
         }
         return $paramList;
     }
 
-    protected function createFunction($functionName, $returnType, array $paramList = [], array $exceptionList = [])
-    {
+    protected function createFunction($functionName, $returnType, array $paramList = [], array $exceptionList = []) {
         $desc = [];
         $arr = [];
         foreach ($paramList as $name => $type) {
@@ -468,8 +459,7 @@ class InterfaceGen
         return $desc . sprintf('public function %s(%s);', $functionName, $param);
     }
 
-    public function createComment(array $desc)
-    {
+    public function createComment(array $desc) {
         foreach ($desc as &$d) {
             $d = ' * ' . $d;
         }
@@ -477,8 +467,7 @@ class InterfaceGen
         return '/**' . PHP_EOL . implode(PHP_EOL, $desc) . PHP_EOL . ' */' . PHP_EOL;
     }
 
-    public function interface2class($code)
-    {
+    public function interface2class($code) {
         $code = preg_replace(array(
             '/^interface ([[:alpha:]]+) extends ([[:alpha:]]+)/',
             '/^interface ([[:alpha:]]+)/',

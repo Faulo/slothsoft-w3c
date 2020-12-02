@@ -2,8 +2,7 @@
 declare(strict_types = 1);
 namespace w3c;
 
-interface XMLHttpRequest extends XMLHttpRequestEventTarget
-{
+interface XMLHttpRequest extends XMLHttpRequestEventTarget {
 
     // states
     const UNSENT = 0;
