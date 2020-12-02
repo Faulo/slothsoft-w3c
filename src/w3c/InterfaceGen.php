@@ -211,6 +211,7 @@ class InterfaceGen
     public function createInterface($wholeText, $href)
     {
         if (strpos($wholeText, 'interface') !== false) {
+            $match = [];
             if (preg_match('/interface (\w+)\s*:?\s*(\w*)\s{/', $wholeText, $match)) {
                 $this->currentInterface = $match[1];
                 $interface = [];
@@ -287,7 +288,6 @@ class InterfaceGen
                                 }
                                 $type = implode(' ', $type);
                                 $type = $this->createType($type);
-                                $hint = $this->createHint($type);
                                 $interface['attr'][] = $this->createFunction('get' . $func, $type, [], $setException);
                                 if (! isset($attr['readonly'])) {
                                     $interface['attr'][] = $this->createFunction('set' . $func, 'void', [
