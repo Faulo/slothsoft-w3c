@@ -7,8 +7,7 @@ declare(strict_types = 1);
  */
 namespace w3c\dom;
 
-interface UserDataHandler
-{
+interface UserDataHandler {
 
     const NODE_CLONED = 1;
 

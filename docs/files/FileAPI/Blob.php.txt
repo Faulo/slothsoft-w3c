@@ -6,8 +6,7 @@ namespace w3c\FileAPI;
  *
  * @see https://www.w3.org/TR/FileAPI/#dfn-Blob
  */
-interface Blob
-{
+interface Blob {
 
     /**
      * Returns the size of the byte sequence in number of bytes.

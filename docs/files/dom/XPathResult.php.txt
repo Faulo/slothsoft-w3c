@@ -7,8 +7,7 @@ declare(strict_types = 1);
  */
 namespace w3c\dom;
 
-interface XPathResult
-{
+interface XPathResult {
 
     const ANY_TYPE = 0;
 

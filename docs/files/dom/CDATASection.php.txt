@@ -7,6 +7,5 @@ declare(strict_types = 1);
  */
 namespace w3c\dom;
 
-interface CDATASection extends Text
-{
+interface CDATASection extends Text {
 }
