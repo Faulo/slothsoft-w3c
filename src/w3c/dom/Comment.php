@@ -7,6 +7,5 @@ declare(strict_types = 1);
  */
 namespace w3c\dom;
 
-interface Comment extends CharacterData
-{
+interface Comment extends CharacterData {
 }

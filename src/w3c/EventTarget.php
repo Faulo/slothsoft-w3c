@@ -2,8 +2,7 @@
 declare(strict_types = 1);
 namespace w3c;
 
-interface EventTarget
-{
+interface EventTarget {
 
     public function addEventListener($type, $listener, $capture = false);
 

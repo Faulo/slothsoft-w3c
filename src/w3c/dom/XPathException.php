@@ -9,7 +9,6 @@ use Throwable;
  * @author Administrator
  *        
  */
-interface XPathException extends Throwable
-{
+interface XPathException extends Throwable {
 }
 
