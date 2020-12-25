@@ -15,8 +15,8 @@
 		"phpunit/phpunit" : "^6.5"
 	},
 	"autoload" : {
-		"psr-0" : {
-			"w3c\\" : "src/"
+		"psr-4" : {
+			"w3c\\" : "src"
 		}
 	},
 	"keywords" : [
@@ -24,9 +24,9 @@
 		"docs"
 	],
 	"autoload-dev" : {
-		"classmap" : [
-			"tests/"
-		]
+		"psr-4" : {
+			"w3c\\" : "tests"
+		}
 	},
 	"homepage" : "http://farah.slothsoft.net/modules/w3c"
 }
