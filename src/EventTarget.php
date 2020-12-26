@@ -4,11 +4,9 @@ namespace w3c;
 
 interface EventTarget {
 
-    public function addEventListener($type, $listener, $capture = false);
+    public function addEventListener(string $type, callable $listener, bool $capture = false): void;
 
-    public function removeEventListener($type, $listener, $capture = false);
+    public function removeEventListener(string $type, callable $listener, bool $capture = false): void;
 
-    public function dispatchEvent($event);
+    public function dispatchEvent($event): bool;
 }
-;
-?>

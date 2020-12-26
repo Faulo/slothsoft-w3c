@@ -28,19 +28,17 @@ interface XMLHttpRequest extends XMLHttpRequestEventTarget {
      * public $responseText;
      * public $responseXML;
      */
-    public function open($method, $url, $async = true, $user = null, $password = null);
+    public function open(string $method, string $url, bool $async = true, string $user = null, string $password = null): void;
 
-    public function setRequestHeader($header, $value);
+    public function setRequestHeader(string $header, string $value): void;
 
-    public function send($data = null);
+    public function send($data = null): void;
 
-    public function abort();
+    public function abort(): void;
 
-    public function overrideMimeType($mime);
+    public function overrideMimeType(string $mime): void;
 
-    public function getResponseHeader($header);
+    public function getResponseHeader(string $header): string;
 
-    public function getAllResponseHeaders();
+    public function getAllResponseHeaders(): array;
 }
-;
-?>

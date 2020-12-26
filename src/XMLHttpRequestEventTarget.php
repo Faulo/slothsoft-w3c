@@ -3,7 +3,6 @@ declare(strict_types = 1);
 namespace w3c;
 
 interface XMLHttpRequestEventTarget extends EventTarget {
-    // event handlers
     /*
      * public $onloadstart;
      * public $onprogress;
@@ -14,5 +13,3 @@ interface XMLHttpRequestEventTarget extends EventTarget {
      * public $onloadend;
      */
 }
-;
-?>
