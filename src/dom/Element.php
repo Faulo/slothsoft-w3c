@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * Element
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-745549614
  */
 namespace w3c\dom;
 
@@ -13,163 +11,149 @@ interface Element extends Node {
      *
      * @return string
      */
-    public function getTagName();
+    public function getTagName(): string;
 
     /**
      *
      * @return TypeInfo
      */
-    public function getSchemaTypeInfo();
+    public function getSchemaTypeInfo(): TypeInfo;
 
     /**
      *
      * @param string $name
      * @return string
      */
-    public function getAttribute($name);
+    public function getAttribute(string $name): string;
 
     /**
      *
      * @param string $name
      * @param string $value
-     * @throws DOMException
      * @return void
      */
-    public function setAttribute($name, $value);
+    public function setAttribute(string $name, string $value): void;
 
     /**
      *
      * @param string $name
-     * @throws DOMException
      * @return void
      */
-    public function removeAttribute($name);
+    public function removeAttribute(string $name): void;
 
     /**
      *
      * @param string $name
      * @return Attr
      */
-    public function getAttributeNode($name);
+    public function getAttributeNode(string $name): Attr;
 
     /**
      *
      * @param Attr $newAttr
-     * @throws DOMException
      * @return Attr
      */
-    public function setAttributeNode(Attr $newAttr);
+    public function setAttributeNode(Attr $newAttr): Attr;
 
     /**
      *
      * @param Attr $oldAttr
-     * @throws DOMException
      * @return Attr
      */
-    public function removeAttributeNode(Attr $oldAttr);
+    public function removeAttributeNode(Attr $oldAttr): Attr;
 
     /**
      *
      * @param string $name
      * @return array
      */
-    public function getElementsByTagName($name);
+    public function getElementsByTagName(string $name): array;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $localName
-     * @throws DOMException
      * @return string
      */
-    public function getAttributeNS($namespaceURI, $localName);
+    public function getAttributeNS(string $namespaceURI, string $localName): string;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $qualifiedName
      * @param string $value
-     * @throws DOMException
      * @return void
      */
-    public function setAttributeNS($namespaceURI, $qualifiedName, $value);
+    public function setAttributeNS(string $namespaceURI, string $qualifiedName, string $value): void;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $localName
-     * @throws DOMException
      * @return void
      */
-    public function removeAttributeNS($namespaceURI, $localName);
+    public function removeAttributeNS(string $namespaceURI, string $localName): void;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $localName
-     * @throws DOMException
      * @return Attr
      */
-    public function getAttributeNodeNS($namespaceURI, $localName);
+    public function getAttributeNodeNS(string $namespaceURI, string $localName): Attr;
 
     /**
      *
      * @param Attr $newAttr
-     * @throws DOMException
      * @return Attr
      */
-    public function setAttributeNodeNS(Attr $newAttr);
+    public function setAttributeNodeNS(Attr $newAttr): Attr;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $localName
-     * @throws DOMException
      * @return array
      */
-    public function getElementsByTagNameNS($namespaceURI, $localName);
+    public function getElementsByTagNameNS(string $namespaceURI, string $localName): array;
 
     /**
      *
      * @param string $name
      * @return bool
      */
-    public function hasAttribute($name);
+    public function hasAttribute(string $name): bool;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $localName
-     * @throws DOMException
      * @return bool
      */
-    public function hasAttributeNS($namespaceURI, $localName);
+    public function hasAttributeNS(string $namespaceURI, string $localName): bool;
 
     /**
      *
      * @param string $name
      * @param bool $isId
-     * @throws DOMException
      * @return void
      */
-    public function setIdAttribute($name, $isId);
+    public function setIdAttribute(string $name, bool $isId): void;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $localName
      * @param bool $isId
-     * @throws DOMException
      * @return void
      */
-    public function setIdAttributeNS($namespaceURI, $localName, $isId);
+    public function setIdAttributeNS(string $namespaceURI, string $localName, bool $isId): void;
 
     /**
      *
      * @param Attr $idAttr
      * @param bool $isId
-     * @throws DOMException
      * @return void
      */
-    public function setIdAttributeNode(Attr $idAttr, $isId);
+    public function setIdAttributeNode(Attr $idAttr, bool $isId): void;
 }

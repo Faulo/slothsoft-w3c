@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * Attr
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-637646024
  */
 namespace w3c\dom;
 
@@ -13,43 +11,42 @@ interface Attr extends Node {
      *
      * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      *
      * @return bool
      */
-    public function getSpecified();
+    public function getSpecified(): bool;
 
     /**
      *
-     * @throws DOMException
      * @return string
      */
-    public function getValue();
+    public function getValue(): string;
 
     /**
      *
      * @param string $value
      * @return void
      */
-    public function setValue($value);
+    public function setValue(string $value): void;
 
     /**
      *
      * @return Element
      */
-    public function getOwnerElement();
+    public function getOwnerElement(): Element;
 
     /**
      *
      * @return TypeInfo
      */
-    public function getSchemaTypeInfo();
+    public function getSchemaTypeInfo(): TypeInfo;
 
     /**
      *
      * @return bool
      */
-    public function getIsId();
+    public function getIsId(): bool;
 }

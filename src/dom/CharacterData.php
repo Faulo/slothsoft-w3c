@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * CharacterData
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-FF21A306
  */
 namespace w3c\dom;
 
@@ -11,67 +9,60 @@ interface CharacterData extends Node {
 
     /**
      *
-     * @throws DOMException
      * @return string
      */
-    public function getData();
+    public function getData(): string;
 
     /**
      *
      * @param string $data
-     * @throws DOMException
      * @return void
      */
-    public function setData($data);
+    public function setData(string $data): void;
 
     /**
      *
      * @return int
      */
-    public function getLength();
+    public function getLength(): int;
 
     /**
      *
      * @param int $offset
      * @param int $count
-     * @throws DOMException
      * @return string
      */
-    public function substringData($offset, $count);
+    public function substringData(int $offset, int $count): string;
 
     /**
      *
      * @param string $arg
-     * @throws DOMException
      * @return void
      */
-    public function appendData($arg);
+    public function appendData(string $arg): void;
 
     /**
      *
      * @param int $offset
      * @param string $arg
-     * @throws DOMException
      * @return void
      */
-    public function insertData($offset, $arg);
+    public function insertData(int $offset, string $arg): void;
 
     /**
      *
      * @param int $offset
      * @param int $count
-     * @throws DOMException
      * @return void
      */
-    public function deleteData($offset, $count);
+    public function deleteData(int $offset, int $count): void;
 
     /**
      *
      * @param int $offset
      * @param int $count
      * @param string $arg
-     * @throws DOMException
      * @return void
      */
-    public function replaceData($offset, $count, $arg);
+    public function replaceData(int $offset, int $count, string $arg): void;
 }

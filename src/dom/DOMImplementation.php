@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * DOMImplementation
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-102161490
  */
 namespace w3c\dom;
 
@@ -15,27 +13,25 @@ interface DOMImplementation {
      * @param string $version
      * @return bool
      */
-    public function hasFeature($feature, $version);
+    public function hasFeature(string $feature, string $version): bool;
 
     /**
      *
      * @param string $qualifiedName
      * @param string $publicId
      * @param string $systemId
-     * @throws DOMException
      * @return DocumentType
      */
-    public function createDocumentType($qualifiedName, $publicId, $systemId);
+    public function createDocumentType(string $qualifiedName, string $publicId, string $systemId): DocumentType;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $qualifiedName
      * @param DocumentType $doctype
-     * @throws DOMException
      * @return Document
      */
-    public function createDocument($namespaceURI, $qualifiedName, DocumentType $doctype);
+    public function createDocument(string $namespaceURI, string $qualifiedName, DocumentType $doctype): Document;
 
     /**
      *
@@ -43,5 +39,5 @@ interface DOMImplementation {
      * @param string $version
      * @return DOMImplementation
      */
-    public function getFeature($feature, $version);
+    public function getFeature(string $feature, string $version): DOMImplementation;
 }

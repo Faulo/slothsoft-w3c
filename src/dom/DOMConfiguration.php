@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * DOMConfiguration
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#DOMConfiguration
  */
 namespace w3c\dom;
 
@@ -13,24 +11,22 @@ interface DOMConfiguration {
      *
      * @return array
      */
-    public function getParameterNames();
+    public function getParameterNames(): array;
 
     /**
      *
      * @param string $name
      * @param Object $value
-     * @throws DOMException
      * @return void
      */
-    public function setParameter($name, $value);
+    public function setParameter(string $name, Object $value): void;
 
     /**
      *
      * @param string $name
-     * @throws DOMException
      * @return Object
      */
-    public function getParameter($name);
+    public function getParameter(string $name): Object;
 
     /**
      *
@@ -38,5 +34,5 @@ interface DOMConfiguration {
      * @param Object $value
      * @return bool
      */
-    public function canSetParameter($name, $value);
+    public function canSetParameter(string $name, Object $value): bool;
 }

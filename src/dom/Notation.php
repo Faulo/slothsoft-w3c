@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * Notation
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-5431D1B9
  */
 namespace w3c\dom;
 
@@ -13,11 +11,11 @@ interface Notation extends Node {
      *
      * @return string
      */
-    public function getPublicId();
+    public function getPublicId(): string;
 
     /**
      *
      * @return string
      */
-    public function getSystemId();
+    public function getSystemId(): string;
 }

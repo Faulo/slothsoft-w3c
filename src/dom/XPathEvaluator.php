@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * XPathEvaluator
- *
- * @link http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathEvaluator
  */
 namespace w3c\dom;
 
@@ -13,18 +11,16 @@ interface XPathEvaluator {
      *
      * @param string $expression
      * @param XPathNSResolver $resolver
-     * @throws XPathException
-     * @throws DOMException
      * @return XPathExpression
      */
-    public function createExpression($expression, XPathNSResolver $resolver);
+    public function createExpression(string $expression, XPathNSResolver $resolver): XPathExpression;
 
     /**
      *
      * @param Node $nodeResolver
      * @return XPathNSResolver
      */
-    public function createNSResolver(Node $nodeResolver);
+    public function createNSResolver(Node $nodeResolver): XPathNSResolver;
 
     /**
      *
@@ -33,9 +29,7 @@ interface XPathEvaluator {
      * @param XPathNSResolver $resolver
      * @param int $type
      * @param XPathResult $result
-     * @throws XPathException
-     * @throws DOMException
      * @return XPathResult
      */
-    public function evaluate($expression, Node $contextNode, XPathNSResolver $resolver, $type, XPathResult $result);
+    public function evaluate(string $expression, Node $contextNode, XPathNSResolver $resolver, int $type, XPathResult $result): XPathResult;
 }

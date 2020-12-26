@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * Document
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#i-Document
  */
 namespace w3c\dom;
 
@@ -13,186 +11,176 @@ interface Document extends Node {
      *
      * @return DocumentType
      */
-    public function getDoctype();
+    public function getDoctype(): DocumentType;
 
     /**
      *
      * @return DOMImplementation
      */
-    public function getImplementation();
+    public function getImplementation(): DOMImplementation;
 
     /**
      *
      * @return Element
      */
-    public function getDocumentElement();
+    public function getDocumentElement(): Element;
 
     /**
      *
      * @return string
      */
-    public function getInputEncoding();
+    public function getInputEncoding(): string;
 
     /**
      *
      * @return string
      */
-    public function getXmlEncoding();
+    public function getXmlEncoding(): string;
 
     /**
      *
-     * @throws DOMException
      * @return bool
      */
-    public function getXmlStandalone();
+    public function getXmlStandalone(): bool;
 
     /**
      *
      * @param bool $xmlStandalone
      * @return void
      */
-    public function setXmlStandalone($xmlStandalone);
+    public function setXmlStandalone(bool $xmlStandalone): void;
 
     /**
      *
-     * @throws DOMException
      * @return string
      */
-    public function getXmlVersion();
+    public function getXmlVersion(): string;
 
     /**
      *
      * @param string $xmlVersion
      * @return void
      */
-    public function setXmlVersion($xmlVersion);
+    public function setXmlVersion(string $xmlVersion): void;
 
     /**
      *
      * @return bool
      */
-    public function getStrictErrorChecking();
+    public function getStrictErrorChecking(): bool;
 
     /**
      *
      * @param bool $strictErrorChecking
      * @return void
      */
-    public function setStrictErrorChecking($strictErrorChecking);
+    public function setStrictErrorChecking(bool $strictErrorChecking): void;
 
     /**
      *
      * @return string
      */
-    public function getDocumentURI();
+    public function getDocumentURI(): string;
 
     /**
      *
      * @param string $documentURI
      * @return void
      */
-    public function setDocumentURI($documentURI);
+    public function setDocumentURI(string $documentURI): void;
 
     /**
      *
      * @return DOMConfiguration
      */
-    public function getDomConfig();
+    public function getDomConfig(): DOMConfiguration;
 
     /**
      *
      * @param string $tagName
-     * @throws DOMException
      * @return Element
      */
-    public function createElement($tagName);
+    public function createElement(string $tagName): Element;
 
     /**
      *
      * @return DocumentFragment
      */
-    public function createDocumentFragment();
+    public function createDocumentFragment(): DocumentFragment;
 
     /**
      *
      * @param string $data
      * @return Text
      */
-    public function createTextNode($data);
+    public function createTextNode(string $data): Text;
 
     /**
      *
      * @param string $data
      * @return Comment
      */
-    public function createComment($data);
+    public function createComment(string $data): Comment;
 
     /**
      *
      * @param string $data
-     * @throws DOMException
      * @return CDATASection
      */
-    public function createCDATASection($data);
+    public function createCDATASection(string $data): CDATASection;
 
     /**
      *
      * @param string $target
      * @param string $data
-     * @throws DOMException
      * @return ProcessingInstruction
      */
-    public function createProcessingInstruction($target, $data);
+    public function createProcessingInstruction(string $target, string $data): ProcessingInstruction;
 
     /**
      *
      * @param string $name
-     * @throws DOMException
      * @return Attr
      */
-    public function createAttribute($name);
+    public function createAttribute(string $name): Attr;
 
     /**
      *
      * @param string $name
-     * @throws DOMException
      * @return EntityReference
      */
-    public function createEntityReference($name);
+    public function createEntityReference(string $name): EntityReference;
 
     /**
      *
      * @param string $tagname
      * @return array
      */
-    public function getElementsByTagName($tagname);
+    public function getElementsByTagName(string $tagname): array;
 
     /**
      *
      * @param Node $importedNode
      * @param bool $deep
-     * @throws DOMException
      * @return Node
      */
-    public function importNode(Node $importedNode, $deep);
+    public function importNode(Node $importedNode, bool $deep): Node;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $qualifiedName
-     * @throws DOMException
      * @return Element
      */
-    public function createElementNS($namespaceURI, $qualifiedName);
+    public function createElementNS(string $namespaceURI, string $qualifiedName): Element;
 
     /**
      *
      * @param string $namespaceURI
      * @param string $qualifiedName
-     * @throws DOMException
      * @return Attr
      */
-    public function createAttributeNS($namespaceURI, $qualifiedName);
+    public function createAttributeNS(string $namespaceURI, string $qualifiedName): Attr;
 
     /**
      *
@@ -200,36 +188,34 @@ interface Document extends Node {
      * @param string $localName
      * @return array
      */
-    public function getElementsByTagNameNS($namespaceURI, $localName);
+    public function getElementsByTagNameNS(string $namespaceURI, string $localName): array;
 
     /**
      *
      * @param string $elementId
      * @return Element
      */
-    public function getElementById($elementId);
+    public function getElementById(string $elementId): Element;
 
     /**
      *
      * @param Node $source
-     * @throws DOMException
      * @return Node
      */
-    public function adoptNode(Node $source);
+    public function adoptNode(Node $source): Node;
 
     /**
      *
      * @return void
      */
-    public function normalizeDocument();
+    public function normalizeDocument(): void;
 
     /**
      *
      * @param Node $n
      * @param string $namespaceURI
      * @param string $qualifiedName
-     * @throws DOMException
      * @return Node
      */
-    public function renameNode(Node $n, $namespaceURI, $qualifiedName);
+    public function renameNode(Node $n, string $namespaceURI, string $qualifiedName): Node;
 }

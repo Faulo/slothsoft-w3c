@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * Entity
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-527DCFF2
  */
 namespace w3c\dom;
 
@@ -13,35 +11,35 @@ interface Entity extends Node {
      *
      * @return string
      */
-    public function getPublicId();
+    public function getPublicId(): string;
 
     /**
      *
      * @return string
      */
-    public function getSystemId();
+    public function getSystemId(): string;
 
     /**
      *
      * @return string
      */
-    public function getNotationName();
+    public function getNotationName(): string;
 
     /**
      *
      * @return string
      */
-    public function getInputEncoding();
+    public function getInputEncoding(): string;
 
     /**
      *
      * @return string
      */
-    public function getXmlEncoding();
+    public function getXmlEncoding(): string;
 
     /**
      *
      * @return string
      */
-    public function getXmlVersion();
+    public function getXmlVersion(): string;
 }

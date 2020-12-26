@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * UserDataHandler
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#UserDataHandler
  */
 namespace w3c\dom;
 
@@ -28,5 +26,5 @@ interface UserDataHandler {
      * @param Node $dst
      * @return void
      */
-    public function handle($operation, $key, $data, Node $src, Node $dst);
+    public function handle(int $operation, string $key, Object $data, Node $src, Node $dst): void;
 }

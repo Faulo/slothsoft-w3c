@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * DocumentType
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-412266927
  */
 namespace w3c\dom;
 
@@ -13,35 +11,35 @@ interface DocumentType extends Node {
      *
      * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      *
      * @return array
      */
-    public function getEntities();
+    public function getEntities(): array;
 
     /**
      *
      * @return array
      */
-    public function getNotations();
+    public function getNotations(): array;
 
     /**
      *
      * @return string
      */
-    public function getPublicId();
+    public function getPublicId(): string;
 
     /**
      *
      * @return string
      */
-    public function getSystemId();
+    public function getSystemId(): string;
 
     /**
      *
      * @return string
      */
-    public function getInternalSubset();
+    public function getInternalSubset(): string;
 }

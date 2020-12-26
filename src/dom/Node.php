@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * Node
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-1950641247
  */
 namespace w3c\dom;
 
@@ -49,176 +47,167 @@ interface Node {
      *
      * @return string
      */
-    public function getNodeName();
+    public function getNodeName(): string;
 
     /**
      *
-     * @throws DOMException
      * @return string
      */
-    public function getNodeValue();
+    public function getNodeValue(): string;
 
     /**
      *
      * @param string $nodeValue
-     * @throws DOMException
      * @return void
      */
-    public function setNodeValue($nodeValue);
+    public function setNodeValue(string $nodeValue): void;
 
     /**
      *
      * @return int
      */
-    public function getNodeType();
+    public function getNodeType(): int;
 
     /**
      *
      * @return Node
      */
-    public function getParentNode();
+    public function getParentNode(): Node;
 
     /**
      *
      * @return array
      */
-    public function getChildNodes();
+    public function getChildNodes(): array;
 
     /**
      *
      * @return Node
      */
-    public function getFirstChild();
+    public function getFirstChild(): Node;
 
     /**
      *
      * @return Node
      */
-    public function getLastChild();
+    public function getLastChild(): Node;
 
     /**
      *
      * @return Node
      */
-    public function getPreviousSibling();
+    public function getPreviousSibling(): Node;
 
     /**
      *
      * @return Node
      */
-    public function getNextSibling();
+    public function getNextSibling(): Node;
 
     /**
      *
      * @return array
      */
-    public function getAttributes();
+    public function getAttributes(): array;
 
     /**
      *
      * @return Document
      */
-    public function getOwnerDocument();
+    public function getOwnerDocument(): Document;
 
     /**
      *
      * @return string
      */
-    public function getNamespaceURI();
+    public function getNamespaceURI(): string;
 
     /**
      *
-     * @throws DOMException
      * @return string
      */
-    public function getPrefix();
+    public function getPrefix(): string;
 
     /**
      *
      * @param string $prefix
      * @return void
      */
-    public function setPrefix($prefix);
+    public function setPrefix(string $prefix): void;
 
     /**
      *
      * @return string
      */
-    public function getLocalName();
+    public function getLocalName(): string;
 
     /**
      *
      * @return string
      */
-    public function getBaseURI();
+    public function getBaseURI(): string;
 
     /**
      *
-     * @throws DOMException
      * @return string
      */
-    public function getTextContent();
+    public function getTextContent(): string;
 
     /**
      *
      * @param string $textContent
-     * @throws DOMException
      * @return void
      */
-    public function setTextContent($textContent);
+    public function setTextContent(string $textContent): void;
 
     /**
      *
      * @param Node $newChild
      * @param Node $refChild
-     * @throws DOMException
      * @return Node
      */
-    public function insertBefore(Node $newChild, Node $refChild);
+    public function insertBefore(Node $newChild, Node $refChild): Node;
 
     /**
      *
      * @param Node $newChild
      * @param Node $oldChild
-     * @throws DOMException
      * @return Node
      */
-    public function replaceChild(Node $newChild, Node $oldChild);
+    public function replaceChild(Node $newChild, Node $oldChild): Node;
 
     /**
      *
      * @param Node $oldChild
-     * @throws DOMException
      * @return Node
      */
-    public function removeChild(Node $oldChild);
+    public function removeChild(Node $oldChild): Node;
 
     /**
      *
      * @param Node $newChild
-     * @throws DOMException
      * @return Node
      */
-    public function appendChild(Node $newChild);
+    public function appendChild(Node $newChild): Node;
 
     /**
      *
      * @return bool
      */
-    public function hasChildNodes();
+    public function hasChildNodes(): bool;
 
     /**
      *
      * @param bool $deep
      * @return Node
      */
-    public function cloneNode($deep);
+    public function cloneNode(bool $deep): Node;
 
     /**
      *
      * @return void
      */
-    public function normalize();
+    public function normalize(): void;
 
     /**
      *
@@ -226,56 +215,55 @@ interface Node {
      * @param string $version
      * @return bool
      */
-    public function isSupported($feature, $version);
+    public function isSupported(string $feature, string $version): bool;
 
     /**
      *
      * @return bool
      */
-    public function hasAttributes();
+    public function hasAttributes(): bool;
 
     /**
      *
      * @param Node $other
-     * @throws DOMException
      * @return int
      */
-    public function compareDocumentPosition(Node $other);
+    public function compareDocumentPosition(Node $other): int;
 
     /**
      *
      * @param Node $other
      * @return bool
      */
-    public function isSameNode(Node $other);
+    public function isSameNode(Node $other): bool;
 
     /**
      *
      * @param string $namespaceURI
      * @return string
      */
-    public function lookupPrefix($namespaceURI);
+    public function lookupPrefix(string $namespaceURI): string;
 
     /**
      *
      * @param string $namespaceURI
      * @return bool
      */
-    public function isDefaultNamespace($namespaceURI);
+    public function isDefaultNamespace(string $namespaceURI): bool;
 
     /**
      *
      * @param string $prefix
      * @return string
      */
-    public function lookupNamespaceURI($prefix);
+    public function lookupNamespaceURI(string $prefix): string;
 
     /**
      *
      * @param Node $arg
      * @return bool
      */
-    public function isEqualNode(Node $arg);
+    public function isEqualNode(Node $arg): bool;
 
     /**
      *
@@ -283,7 +271,7 @@ interface Node {
      * @param string $version
      * @return Node
      */
-    public function getFeature($feature, $version);
+    public function getFeature(string $feature, string $version): Node;
 
     /**
      *
@@ -292,12 +280,12 @@ interface Node {
      * @param UserDataHandler $handler
      * @return Object
      */
-    public function setUserData($key, $data, UserDataHandler $handler);
+    public function setUserData(string $key, Object $data, UserDataHandler $handler): Object;
 
     /**
      *
      * @param string $key
      * @return Object
      */
-    public function getUserData($key);
+    public function getUserData(string $key): Object;
 }

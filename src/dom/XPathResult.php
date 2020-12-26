@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * XPathResult
- *
- * @link http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathResult
  */
 namespace w3c\dom;
 
@@ -33,57 +31,54 @@ interface XPathResult {
      *
      * @return int
      */
-    public function getResultType();
+    public function getResultType(): int;
 
     /**
      *
      * @return float
      */
-    public function getNumberValue();
+    public function getNumberValue(): float;
 
     /**
      *
      * @return string
      */
-    public function getStringValue();
+    public function getStringValue(): string;
 
     /**
      *
      * @return bool
      */
-    public function getBooleanValue();
+    public function getBooleanValue(): bool;
 
     /**
      *
      * @return Node
      */
-    public function getSingleNodeValue();
+    public function getSingleNodeValue(): Node;
 
     /**
      *
      * @return bool
      */
-    public function getInvalidIteratorState();
+    public function getInvalidIteratorState(): bool;
 
     /**
      *
      * @return int
      */
-    public function getSnapshotLength();
+    public function getSnapshotLength(): int;
 
     /**
      *
-     * @throws XPathException
-     * @throws DOMException
      * @return Node
      */
-    public function iterateNext();
+    public function iterateNext(): Node;
 
     /**
      *
      * @param int $index
-     * @throws XPathException
      * @return Node
      */
-    public function snapshotItem($index);
+    public function snapshotItem(int $index): Node;
 }
