@@ -321,11 +321,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/w3c-dom-DOMConfiguration.html#method_canSetParameter"
         },                {
-            "fqsen": "\\w3c\\dom\\DOMException",
-            "name": "DOMException",
-            "summary": "",
-            "url": "classes/w3c-dom-DOMException.html"
-        },                {
             "fqsen": "\\w3c\\dom\\DOMImplementation",
             "name": "DOMImplementation",
             "summary": "",
@@ -931,11 +926,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/w3c-dom-XPathEvaluator.html#method_evaluate"
         },                {
-            "fqsen": "\\w3c\\dom\\XPathException",
-            "name": "XPathException",
-            "summary": "",
-            "url": "classes/w3c-dom-XPathException.html"
-        },                {
             "fqsen": "\\w3c\\dom\\XPathExpression",
             "name": "XPathExpression",
             "summary": "",
@@ -1073,7 +1063,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\w3c\\EventTarget",
             "name": "EventTarget",
-            "summary": "",
+            "summary": "EventTarget",
             "url": "classes/w3c-EventTarget.html"
         },                {
             "fqsen": "\\w3c\\EventTarget\u003A\u003AaddEventListener\u0028\u0029",
@@ -1093,7 +1083,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\w3c\\FileAPI\\Blob",
             "name": "Blob",
-            "summary": "",
+            "summary": "Blob",
             "url": "classes/w3c-FileAPI-Blob.html"
         },                {
             "fqsen": "\\w3c\\FileAPI\\Blob\u003A\u003AgetSize\u0028\u0029",
@@ -1113,7 +1103,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\w3c\\FileAPI\\URL",
             "name": "URL",
-            "summary": "",
+            "summary": "URL",
             "url": "classes/w3c-FileAPI-URL.html"
         },                {
             "fqsen": "\\w3c\\FileAPI\\URL\u003A\u003AcreateObjectURL\u0028\u0029",
@@ -1126,164 +1116,94 @@ Search.appendIndex(
             "summary": "Revokes\u0020the\u0020Blob\u0020URL\u0020provided\u0020in\u0020the\u0020string\u0020url\u0020by\u0020removing\u0020the\u0020corresponding\u0020entry\u0020from\u0020the\u0020Blob\u0020URL\u0020Store.",
             "url": "classes/w3c-FileAPI-URL.html#method_revokeObjectURL"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen",
-            "name": "InterfaceGen",
+            "fqsen": "\\w3c\\InterfaceGenerator",
+            "name": "InterfaceGenerator",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html"
+            "url": "classes/w3c-InterfaceGenerator.html"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\w3c\\InterfaceGenerator\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method___construct"
+            "url": "classes/w3c-InterfaceGenerator.html#method___construct"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AloadInterfaces\u0028\u0029",
-            "name": "loadInterfaces",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_loadInterfaces"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AwriteInterfaces\u0028\u0029",
+            "fqsen": "\\w3c\\InterfaceGenerator\u003A\u003AwriteInterfaces\u0028\u0029",
             "name": "writeInterfaces",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_writeInterfaces"
+            "url": "classes/w3c-InterfaceGenerator.html#method_writeInterfaces"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AcreateInterface\u0028\u0029",
-            "name": "createInterface",
+            "fqsen": "\\w3c\\InterfaceGenerator\u003A\u003A\u0024includeExcecptons",
+            "name": "includeExcecptons",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_createInterface"
+            "url": "classes/w3c-InterfaceGenerator.html#property_includeExcecptons"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AcreateType\u0028\u0029",
-            "name": "createType",
+            "fqsen": "\\w3c\\InterfaceModule",
+            "name": "InterfaceModule",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_createType"
+            "url": "classes/w3c-InterfaceModule.html"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AcreateHint\u0028\u0029",
-            "name": "createHint",
+            "fqsen": "\\w3c\\InterfaceModule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_createHint"
+            "url": "classes/w3c-InterfaceModule.html#method___construct"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AcreateParam\u0028\u0029",
-            "name": "createParam",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_createParam"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AcreateFunction\u0028\u0029",
-            "name": "createFunction",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_createFunction"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003AcreateComment\u0028\u0029",
-            "name": "createComment",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_createComment"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003Ainterface2class\u0028\u0029",
-            "name": "interface2class",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#method_interface2class"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003ANAMESPACE_SEPARATOR",
-            "name": "NAMESPACE_SEPARATOR",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#constant_NAMESPACE_SEPARATOR"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024rootPath",
-            "name": "rootPath",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_rootPath"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024moduleName",
+            "fqsen": "\\w3c\\InterfaceModule\u003A\u003A\u0024moduleName",
             "name": "moduleName",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_moduleName"
+            "url": "classes/w3c-InterfaceModule.html#property_moduleName"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024interfaceURI",
+            "fqsen": "\\w3c\\InterfaceModule\u003A\u003A\u0024interfaceURI",
             "name": "interfaceURI",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_interfaceURI"
+            "url": "classes/w3c-InterfaceModule.html#property_interfaceURI"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024interfaceNS",
-            "name": "interfaceNS",
+            "fqsen": "\\w3c\\InterfaceModule\u003A\u003A\u0024classDirectory",
+            "name": "classDirectory",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_interfaceNS"
+            "url": "classes/w3c-InterfaceModule.html#property_classDirectory"
         },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024interfacePath",
-            "name": "interfacePath",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_interfacePath"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024classNS",
+            "fqsen": "\\w3c\\InterfaceModule\u003A\u003A\u0024classNS",
             "name": "classNS",
             "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_classNS"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024classPath",
-            "name": "classPath",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_classPath"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024interfaceList",
-            "name": "interfaceList",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_interfaceList"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024currentInterface",
-            "name": "currentInterface",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_currentInterface"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024phpProlog",
-            "name": "phpProlog",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_phpProlog"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024phpExtension",
-            "name": "phpExtension",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_phpExtension"
-        },                {
-            "fqsen": "\\w3c\\InterfaceGen\u003A\u003A\u0024typeList",
-            "name": "typeList",
-            "summary": "",
-            "url": "classes/w3c-InterfaceGen.html#property_typeList"
+            "url": "classes/w3c-InterfaceModule.html#property_classNS"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest",
             "name": "XMLHttpRequest",
-            "summary": "",
+            "summary": "XMLHttpRequest",
             "url": "classes/w3c-XMLHttpRequest.html"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003Aopen\u0028\u0029",
             "name": "open",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020request\u0020method,\u0020request\u0020URL,\u0020asynchronous\u0020flag,\u0020request\u0020username,\u0020and\u0020request\u0020password.",
             "url": "classes/w3c-XMLHttpRequest.html#method_open"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003AsetRequestHeader\u0028\u0029",
             "name": "setRequestHeader",
-            "summary": "",
+            "summary": "Appends\u0020an\u0020header\u0020to\u0020the\u0020list\u0020of\u0020author\u0020request\u0020headers\u0020or\u0020if\u0020the\u0020header\u0020is\u0020already\u0020in\u0020the\u0020author\u0020request\u0020headers\u0020its\u0020value\u0020appended\u0020to.",
             "url": "classes/w3c-XMLHttpRequest.html#method_setRequestHeader"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003Asend\u0028\u0029",
             "name": "send",
-            "summary": "",
+            "summary": "Initiates\u0020the\u0020request.",
             "url": "classes/w3c-XMLHttpRequest.html#method_send"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003Aabort\u0028\u0029",
             "name": "abort",
-            "summary": "",
+            "summary": "Cancels\u0020any\u0020network\u0020activity.",
             "url": "classes/w3c-XMLHttpRequest.html#method_abort"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003AoverrideMimeType\u0028\u0029",
             "name": "overrideMimeType",
-            "summary": "",
+            "summary": "Acts\u0020as\u0020if\u0020the\u0020\u0060Content\u002DType\u0060\u0020header\u0020value\u0020for\u0020a\u0020response\u0020is\u0020mime.",
             "url": "classes/w3c-XMLHttpRequest.html#method_overrideMimeType"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003AgetResponseHeader\u0028\u0029",
             "name": "getResponseHeader",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020header\u0020field\u0020value\u0020from\u0020the\u0020response\u0020of\u0020which\u0020the\u0020field\u0020name\u0020matches\u0020header,\u0020unless\u0020the\u0020field\u0020name\u0020is\u0020Set\u002DCookie\u0020or\u0020Set\u002DCookie2.",
             "url": "classes/w3c-XMLHttpRequest.html#method_getResponseHeader"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003AgetAllResponseHeaders\u0028\u0029",
             "name": "getAllResponseHeaders",
-            "summary": "",
+            "summary": "Returns\u0020all\u0020headers\u0020from\u0020the\u0020response,\u0020with\u0020the\u0020exception\u0020of\u0020those\u0020whose\u0020field\u0020name\u0020is\u0020Set\u002DCookie\u0020or\u0020Set\u002DCookie2.",
             "url": "classes/w3c-XMLHttpRequest.html#method_getAllResponseHeaders"
         },                {
             "fqsen": "\\w3c\\XMLHttpRequest\u003A\u003AUNSENT",
@@ -1313,7 +1233,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\w3c\\XMLHttpRequestEventTarget",
             "name": "XMLHttpRequestEventTarget",
-            "summary": "",
+            "summary": "XMLHttpRequestEventTarget",
             "url": "classes/w3c-XMLHttpRequestEventTarget.html"
         },                {
             "fqsen": "\\",
