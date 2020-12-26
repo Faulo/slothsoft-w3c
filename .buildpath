@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
+	<buildpathentry kind="src" path="scripts"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry kind="src" path="src">
 		<attributes>
@@ -132,6 +133,11 @@
 		</attributes>
 	</buildpathentry>
 	<buildpathentry kind="src" path="vendor/sebastian/resource-operations/src">
+		<attributes>
+			<attribute name="composer" value="vendor"/>
+		</attributes>
+	</buildpathentry>
+	<buildpathentry kind="src" path="vendor/sebastian/type/src">
 		<attributes>
 			<attribute name="composer" value="vendor"/>
 		</attributes>

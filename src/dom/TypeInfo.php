@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * TypeInfo
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#TypeInfo
  */
 namespace w3c\dom;
 
@@ -21,13 +19,13 @@ interface TypeInfo {
      *
      * @return string
      */
-    public function getTypeName();
+    public function getTypeName(): string;
 
     /**
      *
      * @return string
      */
-    public function getTypeNamespace();
+    public function getTypeNamespace(): string;
 
     /**
      *
@@ -36,5 +34,5 @@ interface TypeInfo {
      * @param int $derivationMethod
      * @return bool
      */
-    public function isDerivedFrom($typeNamespaceArg, $typeNameArg, $derivationMethod);
+    public function isDerivedFrom(string $typeNamespaceArg, string $typeNameArg, int $derivationMethod): bool;
 }

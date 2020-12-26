@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * Text
- *
- * @link http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-1312295772
  */
 namespace w3c\dom;
 
@@ -13,27 +11,25 @@ interface Text extends CharacterData {
      *
      * @return bool
      */
-    public function getIsElementContentWhitespace();
+    public function getIsElementContentWhitespace(): bool;
 
     /**
      *
      * @return string
      */
-    public function getWholeText();
+    public function getWholeText(): string;
 
     /**
      *
      * @param int $offset
-     * @throws DOMException
      * @return Text
      */
-    public function splitText($offset);
+    public function splitText(int $offset): Text;
 
     /**
      *
      * @param string $content
-     * @throws DOMException
      * @return Text
      */
-    public function replaceWholeText($content);
+    public function replaceWholeText(string $content): Text;
 }

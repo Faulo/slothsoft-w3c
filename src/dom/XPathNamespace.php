@@ -2,8 +2,6 @@
 declare(strict_types = 1);
 /**
  * XPathNamespace
- *
- * @link http://www.w3.org/TR/DOM-Level-3-XPath/xpath.html#XPathNamespace
  */
 namespace w3c\dom;
 
@@ -15,5 +13,5 @@ interface XPathNamespace extends Node {
      *
      * @return Element
      */
-    public function getOwnerElement();
+    public function getOwnerElement(): Element;
 }
