@@ -28,10 +28,10 @@
 			"w3c\\" : "tests"
 		}
 	},
-	"extra": {
-        "branch-alias": {
-            "dev-develop": "1.0.x-dev"
-        }
-    },
+	"extra" : {
+		"branch-alias" : {
+			"dev-develop" : "1.0.x-dev"
+		}
+	},
 	"homepage" : "http://farah.slothsoft.net/modules/w3c"
 }

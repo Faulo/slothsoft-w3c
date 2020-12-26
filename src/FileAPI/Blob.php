@@ -3,8 +3,9 @@ declare(strict_types = 1);
 namespace w3c\FileAPI;
 
 /**
+ * Blob
  *
- * @see https://www.w3.org/TR/FileAPI/#dfn-Blob
+ * @link https://www.w3.org/TR/FileAPI/#dfn-Blob
  */
 interface Blob {
 
