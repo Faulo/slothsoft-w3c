@@ -2,46 +2,45 @@
 declare(strict_types = 1);
 namespace w3c;
 
-class InterfaceGen {
+class InterfaceGenerator {
 
-    const NAMESPACE_SEPARATOR = '\\';
+    private const NAMESPACE_SEPARATOR = '\\';
 
-    protected $rootPath;
+    public $includeExcecptons = false;
 
-    protected $moduleName;
+    private $moduleName;
 
-    protected $interfaceURI;
+    private $interfaceURI;
 
-    protected $interfaceNS = [];
+    private $interfaceNS = [];
 
-    protected $interfacePath = '';
+    private $interfacePath;
 
-    protected $classNS = [];
+    private $classNS = [];
 
-    protected $classPath = 'classes\\';
+    private $classPath;
 
-    protected $interfaceList;
+    private $interfaceList;
 
-    protected $currentInterface;
+    private $currentInterface;
 
-    protected $phpProlog = '<' . '?php';
+    private $phpProlog = '<' . '?php' . PHP_EOL . 'declare(strict_types = 1);';
 
     // chr(239) . chr(187) . chr(191);
-    protected $phpExtension = '.php';
+    private $phpExtension = '.php';
 
-    public function __construct($moduleName, $interfaceURI, $namespace = null) {
-        $this->rootPath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
-        $this->moduleName = $moduleName;
-        $this->interfaceURI = $interfaceURI;
+    public function __construct(InterfaceModule $module) {
+        $this->moduleName = $module->moduleName;
+        $this->interfaceURI = $module->interfaceURI;
 
-        $this->interfacePath = $this->rootPath . $this->interfacePath;
-        $this->classPath = $this->rootPath . $this->classPath;
+        $this->interfacePath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
+        $this->classPath = realpath($module->classDirectory) . DIRECTORY_SEPARATOR;
 
-        if ($moduleName) {
-            $this->interfaceNS = explode('.', $moduleName);
+        if ($module->moduleName) {
+            $this->interfaceNS = explode('.', $module->moduleName);
         }
-        if ($namespace) {
-            $this->classNS = explode('.', $namespace);
+        if ($module->classNS) {
+            $this->classNS = explode('.', $module->classNS);
         }
         foreach ($this->interfaceNS as $ns) {
             $this->interfacePath .= $ns . DIRECTORY_SEPARATOR;
@@ -60,11 +59,9 @@ class InterfaceGen {
         array_unshift($this->interfaceNS, 'w3c');
 
         $this->loadInterfaces();
-
-        $this->writeInterfaces();
     }
 
-    protected function loadInterfaces() {
+    private function loadInterfaces() {
         $this->interfaceList = [];
         $doc = new \DOMDocument();
         $doc->loadHTMLFile($this->interfaceURI);
@@ -74,11 +71,10 @@ class InterfaceGen {
             $href = $xpath->evaluate('string(.//a/@href)', $pre);
             $href = dirname($this->interfaceURI) . '/' . $href;
             $this->createInterface($pre->textContent, $href);
-            // $this->createInterface($doc->getTextFromNode($pre));
         }
     }
 
-    protected function writeInterfaces() {
+    public function writeInterfaces() {
         ksort($this->interfaceList);
         foreach ($this->interfaceList as $interface) {
             $name = $interface['name'];
@@ -106,8 +102,10 @@ class InterfaceGen {
             // INTERFACE
             $desc = [];
             $desc[] = $name;
-            $desc[] = '';
-            $desc[] = sprintf('@link %s', $interface['href']);
+            if (strpos($interface['href'], 'http') === 0) {
+                $desc[] = '';
+                $desc[] = sprintf('@link %s', $interface['href']);
+            }
             $codeList = [];
             $codeList[] = $this->phpProlog;
             $codeList[] = $this->createComment($desc);
@@ -204,7 +202,7 @@ class InterfaceGen {
         }
     }
 
-    public function createInterface($wholeText, $href) {
+    private function createInterface($wholeText, $href) {
         if (strpos($wholeText, 'interface') !== false) {
             $match = [];
             if (preg_match('/interface (\w+)\s*:?\s*(\w*)\s{/', $wholeText, $match)) {
@@ -320,9 +318,9 @@ class InterfaceGen {
         }
     }
 
-    public static $typeList = [];
+    private static $typeList = [];
 
-    protected function createType($type) {
+    private function createType($type) {
         switch ($type) {
             case 'Attr':
             case 'CDATASection':
@@ -401,22 +399,7 @@ class InterfaceGen {
         return $type;
     }
 
-    protected function createHint($type) {
-        switch ($type) {
-            case 'array':
-                break;
-            case 'Object':
-            case 'string':
-            case 'bool':
-            case 'float':
-            case 'int':
-                $type = '';
-                break;
-        }
-        return $type;
-    }
-
-    protected function createParam($code) {
+    private function createParam($code) {
         $paramList = [];
         if (strlen($code)) {
             $code = explode(',', $code);
@@ -437,29 +420,26 @@ class InterfaceGen {
         return $paramList;
     }
 
-    protected function createFunction($functionName, $returnType, array $paramList = [], array $exceptionList = []) {
+    private function createFunction($functionName, $returnType, array $paramList = [], array $exceptionList = []) {
         $desc = [];
         $arr = [];
         foreach ($paramList as $name => $type) {
             $desc[] = sprintf('@param %s $%s', $type, $name);
-            $hint = $this->createHint($type);
-            if ($hint) {
-                $param = sprintf('%s $%s', $hint, $name);
-            } else {
-                $param = sprintf('$%s', $name);
-            }
+            $param = sprintf('%s $%s', $type, $name);
             $arr[] = $param;
         }
         $param = implode(', ', $arr);
-        foreach ($exceptionList as $exception) {
-            $desc[] = sprintf('@throws %s', $exception);
+        if ($this->includeExcecptons) {
+            foreach ($exceptionList as $exception) {
+                $desc[] = sprintf('@throws %s', $exception);
+            }
         }
         $desc[] = sprintf('@return %s', $returnType);
         $desc = $this->createComment($desc);
-        return $desc . sprintf('public function %s(%s);', $functionName, $param);
+        return $desc . sprintf('public function %s(%s) : %s;', $functionName, $param, $returnType);
     }
 
-    public function createComment(array $desc) {
+    private function createComment(array $desc) {
         foreach ($desc as &$d) {
             $d = ' * ' . $d;
         }
@@ -467,7 +447,7 @@ class InterfaceGen {
         return '/**' . PHP_EOL . implode(PHP_EOL, $desc) . PHP_EOL . ' */' . PHP_EOL;
     }
 
-    public function interface2class($code) {
+    private function interface2class($code) {
         $code = preg_replace(array(
             '/^interface ([[:alpha:]]+) extends ([[:alpha:]]+)/',
             '/^interface ([[:alpha:]]+)/',
@@ -489,109 +469,4 @@ class InterfaceGen {
         ), $code);
         return $code;
     }
-    /*
-     *
-     * public function createInterface2($text) {
-     * $text = preg_replace('/\s+/', ' ', trim($text));
-     * if (preg_match('/interface\s(\w+)(.*{)/', $text, $match)) {
-     * $text = str_replace($match[0], '', $text);
-     * $ret = 'interface ';
-     * $name = $match[1];
-     * $ret .= $name . str_replace(':', 'extends', $match[2]) . "\n";
-     *
-     * $constants = array('
-     * //Constants');
-     * $attributes = array('
-     * //Properties');
-     * $functions = array('
-     * //Methods');
-     * $text = explode(';', $text);
-     *
-     * for ($i = 0, $j = count($text); $i < $j; $i++) {
-     * $line = trim($text[$i]);
-     * if ($line === '}') {
-     * //$ret .= $line;
-     * break;
-     * }
-     * $line = preg_replace('/raises\([^)]*\)/', '', $line);
-     * if (preg_match('/^(.*?)\s(\w+)\(([^)]*)\)/', $line, $match)) {
-     * //function
-     * //my_dump($match);
-     * $const = $attribute = $readonly = 0;
-     * $pre = $match[1];
-     * $member = $match[2];
-     * $arr = explode(',', $match[3]);
-     * $args = array();
-     * foreach ($arr as $arg) {
-     * $arg = trim($arg);
-     * if (preg_match('/(\w+)\s(\w+)$/', $arg, $match)) {
-     * $argType = $match[1];
-     * $argName = $match[2];
-     * $arg = array();
-     * if ($argType[0] === strtoupper($argType[0])) {
-     * $arg[] = $argType;
-     * }
-     * $arg[] = '$' . $argName;
-     * $args[] = implode(' ', $arg);
-     * }
-     * }
-     * } elseif (preg_match('/const(.*)\s(\w+)\s*=(.+)$/', $line, $match)) {
-     * //constant
-     * //my_dump($match);
-     * $const = 1;
-     * $attribute = $readonly = 0;
-     * $pre = $match[1];
-     * $member = $match[2];
-     * $args = trim($match[3]);
-     * } elseif (preg_match('/^(.*attribute.*)\s(\w+)$/', $line, $match)) {
-     * //attribute
-     * //my_dump($match);
-     * $const = 0;
-     * $attribute = 1;
-     * $pre = $match[1];
-     * $member = $match[2];
-     * $pre = str_replace('readonly', '', $pre, $readonly);
-     * $pre = '';
-     * } else {
-     * continue;
-     * }
-     *
-     * $dec = 'public function ';
-     * if ($const) {
-     * $constants[] = 'const ' . $member . ' = ' . $args . ';';
-     * continue;
-     * }
-     * if ($attribute) {
-     * $key = $member;
-     * $member[0] = strtoupper($member[0]);
-     * $attributes[] = $dec .'get'.$member.'();';
-     * if (!$readonly) {
-     * $attributes[] = $dec .'set'.$member.'('.$pre.'$'.$key.');';
-     * }
-     * } else {
-     * $functions[] = $dec . $member . '(' . implode(', ', $args) . ');';
-     * }
-     *
-     * //$ret .= "\t" . $dec .implode(' ', $arr)."\n";
-     * }
-     * if (count($constants) === 1) array_pop($constants);
-     * if (count($attributes) === 1) array_pop($attributes);
-     * if (count($functions) === 1) array_pop($functions);
-     * $members = array_merge($constants, $attributes, $functions);
-     * foreach ($members as $attr) {
-     * $ret .= "\t$attr\n";
-     * }
-     * $ret .= '}';
-     * $ret = str_replace(
-     * array('DOMString $', 'DOMObject $'),
-     * '$',
-     * $ret
-     * );
-     * $this->interfaces[$name] = $ret;
-     * }
-     * }
-     * //
-     */
 }
-
-?>
