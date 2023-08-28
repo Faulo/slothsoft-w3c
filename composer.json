@@ -1,7 +1,7 @@
 {
 	"name" : "slothsoft/w3c",
 	"description" : "A Farah module that contains interfaces for various w3c specs.",
-	"license" : "WTFPL",
+	"license" : "MIT",
 	"authors" : [{
 			"name" : "Daniel Schulz",
 			"email" : "info.slothsoft@gmail.com"
