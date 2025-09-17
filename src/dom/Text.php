@@ -6,26 +6,26 @@ declare(strict_types = 1);
 namespace w3c\dom;
 
 interface Text extends CharacterData {
-
+    
     /**
      *
      * @return bool
      */
     public function getIsElementContentWhitespace(): bool;
-
+    
     /**
      *
      * @return string
      */
     public function getWholeText(): string;
-
+    
     /**
      *
      * @param int $offset
      * @return Text
      */
     public function splitText(int $offset): Text;
-
+    
     /**
      *
      * @param string $content

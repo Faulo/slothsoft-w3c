@@ -8,7 +8,7 @@ namespace w3c\FileAPI;
  * @link https://www.w3.org/TR/FileAPI/#dfn-Blob
  */
 interface Blob {
-
+    
     /**
      * Returns the size of the byte sequence in number of bytes.
      *
@@ -16,7 +16,7 @@ interface Blob {
      * @see https://www.w3.org/TR/FileAPI/#dfn-size
      */
     public function getSize(): int;
-
+    
     /**
      * The ASCII-encoded string in lower case representing the media type of the Blob.
      *
@@ -24,7 +24,7 @@ interface Blob {
      * @see https://www.w3.org/TR/FileAPI/#dfn-type
      */
     public function getType(): string;
-
+    
     /**
      * The slice() method returns a new Blob object with bytes ranging from the optional start parameter up to but not including the optional end parameter, and with a type attribute that is the value of the optional contentType parameter.
      *

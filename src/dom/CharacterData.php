@@ -6,26 +6,26 @@ declare(strict_types = 1);
 namespace w3c\dom;
 
 interface CharacterData extends Node {
-
+    
     /**
      *
      * @return string
      */
     public function getData(): string;
-
+    
     /**
      *
      * @param string $data
      * @return void
      */
     public function setData(string $data): void;
-
+    
     /**
      *
      * @return int
      */
     public function getLength(): int;
-
+    
     /**
      *
      * @param int $offset
@@ -33,14 +33,14 @@ interface CharacterData extends Node {
      * @return string
      */
     public function substringData(int $offset, int $count): string;
-
+    
     /**
      *
      * @param string $arg
      * @return void
      */
     public function appendData(string $arg): void;
-
+    
     /**
      *
      * @param int $offset
@@ -48,7 +48,7 @@ interface CharacterData extends Node {
      * @return void
      */
     public function insertData(int $offset, string $arg): void;
-
+    
     /**
      *
      * @param int $offset
@@ -56,7 +56,7 @@ interface CharacterData extends Node {
      * @return void
      */
     public function deleteData(int $offset, int $count): void;
-
+    
     /**
      *
      * @param int $offset

@@ -6,26 +6,26 @@ declare(strict_types = 1);
 namespace w3c\dom;
 
 interface Element extends Node {
-
+    
     /**
      *
      * @return string
      */
     public function getTagName(): string;
-
+    
     /**
      *
      * @return TypeInfo
      */
     public function getSchemaTypeInfo(): TypeInfo;
-
+    
     /**
      *
      * @param string $name
      * @return string
      */
     public function getAttribute(string $name): string;
-
+    
     /**
      *
      * @param string $name
@@ -33,42 +33,42 @@ interface Element extends Node {
      * @return void
      */
     public function setAttribute(string $name, string $value): void;
-
+    
     /**
      *
      * @param string $name
      * @return void
      */
     public function removeAttribute(string $name): void;
-
+    
     /**
      *
      * @param string $name
      * @return Attr
      */
     public function getAttributeNode(string $name): Attr;
-
+    
     /**
      *
      * @param Attr $newAttr
      * @return Attr
      */
     public function setAttributeNode(Attr $newAttr): Attr;
-
+    
     /**
      *
      * @param Attr $oldAttr
      * @return Attr
      */
     public function removeAttributeNode(Attr $oldAttr): Attr;
-
+    
     /**
      *
      * @param string $name
      * @return array
      */
     public function getElementsByTagName(string $name): array;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -76,7 +76,7 @@ interface Element extends Node {
      * @return string
      */
     public function getAttributeNS(string $namespaceURI, string $localName): string;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -85,7 +85,7 @@ interface Element extends Node {
      * @return void
      */
     public function setAttributeNS(string $namespaceURI, string $qualifiedName, string $value): void;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -93,7 +93,7 @@ interface Element extends Node {
      * @return void
      */
     public function removeAttributeNS(string $namespaceURI, string $localName): void;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -101,14 +101,14 @@ interface Element extends Node {
      * @return Attr
      */
     public function getAttributeNodeNS(string $namespaceURI, string $localName): Attr;
-
+    
     /**
      *
      * @param Attr $newAttr
      * @return Attr
      */
     public function setAttributeNodeNS(Attr $newAttr): Attr;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -116,14 +116,14 @@ interface Element extends Node {
      * @return array
      */
     public function getElementsByTagNameNS(string $namespaceURI, string $localName): array;
-
+    
     /**
      *
      * @param string $name
      * @return bool
      */
     public function hasAttribute(string $name): bool;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -131,7 +131,7 @@ interface Element extends Node {
      * @return bool
      */
     public function hasAttributeNS(string $namespaceURI, string $localName): bool;
-
+    
     /**
      *
      * @param string $name
@@ -139,7 +139,7 @@ interface Element extends Node {
      * @return void
      */
     public function setIdAttribute(string $name, bool $isId): void;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -148,7 +148,7 @@ interface Element extends Node {
      * @return void
      */
     public function setIdAttributeNS(string $namespaceURI, string $localName, bool $isId): void;
-
+    
     /**
      *
      * @param Attr $idAttr

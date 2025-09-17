@@ -6,17 +6,17 @@ declare(strict_types = 1);
 namespace w3c\dom;
 
 interface UserDataHandler {
-
+    
     const NODE_CLONED = 1;
-
+    
     const NODE_IMPORTED = 2;
-
+    
     const NODE_DELETED = 3;
-
+    
     const NODE_RENAMED = 4;
-
+    
     const NODE_ADOPTED = 5;
-
+    
     /**
      *
      * @param int $operation

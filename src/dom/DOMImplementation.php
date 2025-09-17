@@ -6,7 +6,7 @@ declare(strict_types = 1);
 namespace w3c\dom;
 
 interface DOMImplementation {
-
+    
     /**
      *
      * @param string $feature
@@ -14,7 +14,7 @@ interface DOMImplementation {
      * @return bool
      */
     public function hasFeature(string $feature, string $version): bool;
-
+    
     /**
      *
      * @param string $qualifiedName
@@ -23,7 +23,7 @@ interface DOMImplementation {
      * @return DocumentType
      */
     public function createDocumentType(string $qualifiedName, string $publicId, string $systemId): DocumentType;
-
+    
     /**
      *
      * @param string $namespaceURI
@@ -32,7 +32,7 @@ interface DOMImplementation {
      * @return Document
      */
     public function createDocument(string $namespaceURI, string $qualifiedName, DocumentType $doctype): Document;
-
+    
     /**
      *
      * @param string $feature

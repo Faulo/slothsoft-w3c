@@ -6,7 +6,7 @@ declare(strict_types = 1);
 namespace w3c\dom;
 
 interface XPathExpression {
-
+    
     /**
      *
      * @param Node $contextNode

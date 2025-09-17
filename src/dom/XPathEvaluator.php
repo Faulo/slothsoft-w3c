@@ -6,7 +6,7 @@ declare(strict_types = 1);
 namespace w3c\dom;
 
 interface XPathEvaluator {
-
+    
     /**
      *
      * @param string $expression
@@ -14,14 +14,14 @@ interface XPathEvaluator {
      * @return XPathExpression
      */
     public function createExpression(string $expression, XPathNSResolver $resolver): XPathExpression;
-
+    
     /**
      *
      * @param Node $nodeResolver
      * @return XPathNSResolver
      */
     public function createNSResolver(Node $nodeResolver): XPathNSResolver;
-
+    
     /**
      *
      * @param string $expression
