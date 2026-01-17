@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class URLTest extends TestCase {
+final class URLTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(URL::class), "Failed to load interface 'w3c\FileAPI\URL'!");

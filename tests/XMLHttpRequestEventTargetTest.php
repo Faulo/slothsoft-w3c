@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class XMLHttpRequestEventTargetTest extends TestCase {
+final class XMLHttpRequestEventTargetTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(XMLHttpRequestEventTarget::class), "Failed to load interface 'w3c\XMLHttpRequestEventTarget'!");

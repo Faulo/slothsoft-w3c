@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class XPathNamespaceTest extends TestCase {
+final class XPathNamespaceTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(XPathNamespace::class), "Failed to load interface 'w3c\dom\XPathNamespace'!");

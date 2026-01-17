@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class XPathNSResolverTest extends TestCase {
+final class XPathNSResolverTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(XPathNSResolver::class), "Failed to load interface 'w3c\dom\XPathNSResolver'!");

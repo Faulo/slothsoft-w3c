@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class TextTest extends TestCase {
+final class TextTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(Text::class), "Failed to load interface 'w3c\dom\Text'!");

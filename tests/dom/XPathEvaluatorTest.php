@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class XPathEvaluatorTest extends TestCase {
+final class XPathEvaluatorTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(XPathEvaluator::class), "Failed to load interface 'w3c\dom\XPathEvaluator'!");

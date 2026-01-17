@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class BlobTest extends TestCase {
+final class BlobTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(Blob::class), "Failed to load interface 'w3c\FileAPI\Blob'!");

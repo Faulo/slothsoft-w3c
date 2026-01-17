@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class EntityTest extends TestCase {
+final class EntityTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(Entity::class), "Failed to load interface 'w3c\dom\Entity'!");

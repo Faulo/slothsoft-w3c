@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class DocumentFragmentTest extends TestCase {
+final class DocumentFragmentTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(DocumentFragment::class), "Failed to load interface 'w3c\dom\DocumentFragment'!");

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class InterfaceModuleTest extends TestCase {
+final class InterfaceModuleTest extends TestCase {
     
     public function testClassExists(): void {
         $this->assertTrue(class_exists(InterfaceModule::class), "Failed to load class 'w3c\InterfaceModule'!");

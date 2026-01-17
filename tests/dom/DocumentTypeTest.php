@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class DocumentTypeTest extends TestCase {
+final class DocumentTypeTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(DocumentType::class), "Failed to load interface 'w3c\dom\DocumentType'!");

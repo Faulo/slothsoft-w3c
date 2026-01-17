@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class EventTargetTest extends TestCase {
+final class EventTargetTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(EventTarget::class), "Failed to load interface 'w3c\EventTarget'!");

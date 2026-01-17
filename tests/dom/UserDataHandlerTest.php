@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class UserDataHandlerTest extends TestCase {
+final class UserDataHandlerTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(UserDataHandler::class), "Failed to load interface 'w3c\dom\UserDataHandler'!");

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @todo auto-generated
  */
-class NotationTest extends TestCase {
+final class NotationTest extends TestCase {
     
     public function testInterfaceExists(): void {
         $this->assertTrue(interface_exists(Notation::class), "Failed to load interface 'w3c\dom\Notation'!");
