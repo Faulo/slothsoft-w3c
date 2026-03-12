@@ -43,7 +43,7 @@ interface XMLHttpRequest extends XMLHttpRequestEventTarget {
      * @param string $user
      * @param string $password
      */
-    public function open(string $method, string $url, bool $async = true, string $user = null, string $password = null): void;
+    public function open(string $method, string $url, bool $async = true, ?string $user = null, ?string $password = null): void;
     
     /**
      * Appends an header to the list of author request headers or if the header is already in the author request headers its value appended to.
