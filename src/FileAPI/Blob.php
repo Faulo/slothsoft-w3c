@@ -34,5 +34,5 @@ interface Blob {
      * @return Blob
      * @see https://www.w3.org/TR/FileAPI/#dfn-slice
      */
-    public function slice(int $start = null, int $end = null, string $contentType = null): Blob;
+    public function slice(?int $start = null, ?int $end = null, ?string $contentType = null): Blob;
 }
