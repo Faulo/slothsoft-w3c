@@ -1,37 +1,38 @@
 {
-	"name" : "slothsoft/w3c",
-	"description" : "A Farah module that contains interfaces for various w3c specs.",
-	"license" : "MIT",
-	"authors" : [{
-			"name" : "Daniel Schulz",
-			"email" : "info.slothsoft@gmail.com"
-		}
-	],
-	"type" : "library",
-	"require" : {
-		"php" : ">=7.4"
-	},
-	"require-dev" : {
-		"phpunit/phpunit" : "~9.6.23"
-	},
-	"autoload" : {
-		"psr-4" : {
-			"w3c\\" : "src"
-		}
-	},
-	"keywords" : [
-		"slothsoft",
-		"docs"
-	],
-	"autoload-dev" : {
-		"psr-4" : {
-			"w3c\\" : "tests"
-		}
-	},
-	"extra" : {
-		"branch-alias" : {
-			"dev-main" : "1.3.x-dev"
-		}
-	},
-	"homepage" : "http://farah.slothsoft.net/modules/w3c"
+    "name": "slothsoft/w3c",
+    "description": "A Farah module that contains interfaces for various w3c specs.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Schulz",
+            "email": "info.slothsoft@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.6.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "w3c\\": "src"
+        }
+    },
+    "keywords": [
+        "slothsoft",
+        "docs"
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "w3c\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.3.x-dev"
+        }
+    },
+    "homepage": "http://farah.slothsoft.net/modules/w3c"
 }
