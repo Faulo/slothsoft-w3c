@@ -1,91 +1,69 @@
 <?php
 declare(strict_types = 1);
 namespace w3c;
+use DOMDocument;
+use w3c\FileAPI\Blob;
 
 /**
  * XMLHttpRequest
  *
- * @link https://www.w3.org/TR/XMLHttpRequest1/#the-xmlhttprequest-interface
+ * @see https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#xmlhttprequest
  */
+
 interface XMLHttpRequest extends XMLHttpRequestEventTarget {
-    
-    // states
-    const UNSENT = 0;
-    
-    const OPENED = 1;
-    
-    const HEADERS_RECEIVED = 2;
-    
-    const LOADING = 3;
-    
-    const DONE = 4;
-    
-    /*
-     * public $onreadystatechange;
-     * public $readyState = self::UNSENT;
-     * public $timeout;
-     * public $withCredentials;
-     * public $upload;
-     * public $status = 0;
-     * public $statusText = '';
-     * public $responseType;
-     * public $response;
-     * public $responseText;
-     * public $responseXML;
-     */
-    
+
+    public const UNSENT = 0;
+
+    public const OPENED = 1;
+
+    public const HEADERS_RECEIVED = 2;
+
+    public const LOADING = 3;
+
+    public const DONE = 4;
+
     /**
-     * Sets the request method, request URL, asynchronous flag, request username, and request password.
-     *
      * @param string $method
      * @param string $url
-     * @param bool $async
-     * @param string $user
-     * @param string $password
+     * @param ?bool $async
+     * @param ?string $user
+     * @param ?string $password
+     * @return void
      */
-    public function open(string $method, string $url, bool $async = true, ?string $user = null, ?string $password = null): void;
-    
+    public function open(string $method, string $url, ?bool $async = null, ?string $user = null, ?string $password = null): void;
+
     /**
-     * Appends an header to the list of author request headers or if the header is already in the author request headers its value appended to.
-     *
      * @param string $header
      * @param string $value
+     * @return void
      */
     public function setRequestHeader(string $header, string $value): void;
-    
+
     /**
-     * Initiates the request.
-     * The optional argument provides the request entity body. The argument is ignored if request method is GET or HEAD.
-     *
-     * @param mixed $data
+     * @param object|null|Blob|DOMDocument|string|FormData $data
+     * @return void
      */
     public function send($data = null): void;
-    
+
     /**
-     * Cancels any network activity.
+     * @return void
      */
     public function abort(): void;
-    
+
     /**
-     * Acts as if the `Content-Type` header value for a response is mime.
-     * (It does not change the header.)
-     *
-     * @param string $mime
-     */
-    public function overrideMimeType(string $mime): void;
-    
-    /**
-     * Returns the header field value from the response of which the field name matches header, unless the field name is Set-Cookie or Set-Cookie2.
-     *
      * @param string $header
      * @return string
      */
     public function getResponseHeader(string $header): string;
-    
+
     /**
-     * Returns all headers from the response, with the exception of those whose field name is Set-Cookie or Set-Cookie2.
-     *
-     * @return array
+     * @return string
      */
-    public function getAllResponseHeaders(): array;
+    public function getAllResponseHeaders(): string;
+
+    /**
+     * @param string $mime
+     * @return void
+     */
+    public function overrideMimeType(string $mime): void;
 }

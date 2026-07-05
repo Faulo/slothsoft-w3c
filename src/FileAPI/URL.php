@@ -5,26 +5,20 @@ namespace w3c\FileAPI;
 /**
  * URL
  *
- * @link https://www.w3.org/TR/FileAPI/#url
+ * @see https://www.w3.org/TR/2011/WD-FileAPI-20111020/#URL-object
  */
+
 interface URL {
-    
+
     /**
-     * Returns a unique Blob URL.
-     *
-     * @param resource $blob
+     * @param Blob $blob
      * @return string
-     * @see https://www.w3.org/TR/FileAPI/#dfn-createObjectURL
      */
-    public static function createObjectURL($blob): string;
-    
+    public static function createObjectURL(Blob $blob): string;
+
     /**
-     * Revokes the Blob URL provided in the string url by removing the corresponding entry from the Blob URL Store.
-     *
      * @param string $url
      * @return void
-     * @see https://www.w3.org/TR/FileAPI/#dfn-revokeObjectURL
      */
-    public static function revokeObjectURL(string $url);
+    public static function revokeObjectURL(string $url): void;
 }
-

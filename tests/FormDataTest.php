@@ -6,19 +6,19 @@ namespace w3c;
 use PHPUnit\Framework\TestCase;
 
 /**
- * XMLHttpRequestTest
+ * FormDataTest
  *
- * @see XMLHttpRequest
+ * @see FormData
  *
  * @todo auto-generated
  */
-final class XMLHttpRequestTest extends TestCase {
+final class FormDataTest extends TestCase {
     
     /**
      *
      * @test
      */
     public function testInterfaceExists(): void {
-        $this->assertTrue(interface_exists(XMLHttpRequest::class), "Failed to load interface 'w3c\XMLHttpRequest'!");
+        $this->assertTrue(interface_exists(FormData::class), "Failed to load interface 'w3c\FormData'!");
     }
 }

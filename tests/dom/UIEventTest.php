@@ -1,24 +1,24 @@
 <?php
 declare(strict_types = 1);
 
-namespace w3c\FileAPI;
+namespace w3c\dom;
 
 use PHPUnit\Framework\TestCase;
 
 /**
- * BlobTest
+ * UIEventTest
  *
- * @see Blob
+ * @see UIEvent
  *
  * @todo auto-generated
  */
-final class BlobTest extends TestCase {
+final class UIEventTest extends TestCase {
     
     /**
      *
      * @test
      */
     public function testInterfaceExists(): void {
-        $this->assertTrue(interface_exists(Blob::class), "Failed to load interface 'w3c\FileAPI\Blob'!");
+        $this->assertTrue(interface_exists(UIEvent::class), "Failed to load interface 'w3c\dom\UIEvent'!");
     }
 }

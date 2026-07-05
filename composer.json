@@ -10,7 +10,9 @@
     ],
     "type": "library",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ext-dom": "*",
+        "ext-libxml": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "~9.6.23"
@@ -28,6 +30,9 @@
         "psr-4": {
             "w3c\\": "tests"
         }
+    },
+    "scripts": {
+        "create-interfaces": "php scripts/create-interfaces.php"
     },
     "extra": {
         "branch-alias": {

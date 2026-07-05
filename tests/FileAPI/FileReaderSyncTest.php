@@ -6,19 +6,19 @@ namespace w3c\FileAPI;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BlobTest
+ * FileReaderSyncTest
  *
- * @see Blob
+ * @see FileReaderSync
  *
  * @todo auto-generated
  */
-final class BlobTest extends TestCase {
+final class FileReaderSyncTest extends TestCase {
     
     /**
      *
      * @test
      */
     public function testInterfaceExists(): void {
-        $this->assertTrue(interface_exists(Blob::class), "Failed to load interface 'w3c\FileAPI\Blob'!");
+        $this->assertTrue(interface_exists(FileReaderSync::class), "Failed to load interface 'w3c\FileAPI\FileReaderSync'!");
     }
 }

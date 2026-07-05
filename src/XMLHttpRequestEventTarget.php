@@ -1,20 +1,13 @@
 <?php
 declare(strict_types = 1);
 namespace w3c;
+use w3c\dom\EventTarget;
 
 /**
  * XMLHttpRequestEventTarget
  *
- * @link https://www.w3.org/TR/XMLHttpRequest1/#xmlhttprequesteventtarget
+ * @see https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#xmlhttprequesteventtarget
  */
+
 interface XMLHttpRequestEventTarget extends EventTarget {
-    /*
-     * public $onloadstart;
-     * public $onprogress;
-     * public $onabort;
-     * public $onerror;
-     * public $onload;
-     * public $ontimeout;
-     * public $onloadend;
-     */
 }
