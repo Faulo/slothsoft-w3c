@@ -6,7 +6,7 @@ use w3c\FileAPI\Blob;
 /**
  * FormData
  *
- * @see https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#formdata
+ * @see https://www.w3.org/TR/2014/WD-XMLHttpRequest-20140130/#formdata
  */
 
 interface FormData {

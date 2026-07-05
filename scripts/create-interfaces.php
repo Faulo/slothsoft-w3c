@@ -10,7 +10,7 @@ $modules = [];
 $modules[] = new InterfaceModule('dom', 'https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html');
 //$modules[] = new InterfaceModule('dom', 'https://www.w3.org/TR/2004/NOTE-DOM-Level-3-XPath-20040226/xpath.html');
 $modules[] = new InterfaceModule('FileAPI', 'https://www.w3.org/TR/2011/WD-FileAPI-20111020/', true);
-$modules[] = new InterfaceModule('', 'https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/');
+$modules[] = new InterfaceModule('', 'https://www.w3.org/TR/2014/WD-XMLHttpRequest-20140130/');
 
 foreach ($modules as $module) {
     $generator = new InterfaceGenerator($module);

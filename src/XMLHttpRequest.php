@@ -7,7 +7,7 @@ use w3c\FileAPI\Blob;
 /**
  * XMLHttpRequest
  *
- * @see https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#xmlhttprequest
+ * @see https://www.w3.org/TR/2014/WD-XMLHttpRequest-20140130/#xmlhttprequest
  */
 
 interface XMLHttpRequest extends XMLHttpRequestEventTarget {
@@ -26,11 +26,11 @@ interface XMLHttpRequest extends XMLHttpRequestEventTarget {
      * @param string $method
      * @param string $url
      * @param ?bool $async
-     * @param ?string $user
+     * @param ?string $username
      * @param ?string $password
      * @return void
      */
-    public function open(string $method, string $url, ?bool $async = null, ?string $user = null, ?string $password = null): void;
+    public function open(string $method, string $url, ?bool $async = null, ?string $username = null, ?string $password = null): void;
 
     /**
      * @param string $header
@@ -40,7 +40,7 @@ interface XMLHttpRequest extends XMLHttpRequestEventTarget {
     public function setRequestHeader(string $header, string $value): void;
 
     /**
-     * @param object|null|Blob|DOMDocument|string|FormData $data
+     * @param object|Blob|DOMDocument|string|FormData|null $data
      * @return void
      */
     public function send($data = null): void;
@@ -52,9 +52,9 @@ interface XMLHttpRequest extends XMLHttpRequestEventTarget {
 
     /**
      * @param string $header
-     * @return string
+     * @return ?string
      */
-    public function getResponseHeader(string $header): string;
+    public function getResponseHeader(string $header): ?string;
 
     /**
      * @return string

@@ -79,10 +79,14 @@ class InterfaceGenerator {
         foreach ($doc->getElementsByTagName('pre') as $pre) {
             assert($pre instanceof DOMElement);
             foreach ($this->extractInterfaceBlocks($pre->textContent) as $block) {
-                $href = $this->createHref($doc, $pre, $this->extractInterfaceName($block));
+                $href = $this->isPartialInterface($block) ? $this->sourceURI : $this->createHref($doc, $pre, $this->extractInterfaceName($block));
                 $this->createInterface($block, $href);
             }
         }
+    }
+    
+    private function isPartialInterface(string $block): bool {
+        return preg_match('/^partial\s+interface\b/', trim($block)) === 1;
     }
     
     /**
@@ -427,6 +431,9 @@ class InterfaceGenerator {
      */
     private function createTypeInfo(string $type): array {
         $type = trim(preg_replace('/\s+/', ' ', $type));
+        $type = preg_replace('/\s*<\s*/', '<', $type);
+        $type = preg_replace('/\s*>\s*/', '>', (string) $type);
+        assert(is_string($type));
         $nullable = false;
         if (substr($type, -1) === '?') {
             $nullable = true;
@@ -435,10 +442,8 @@ class InterfaceGenerator {
         $type = trim($type);
         
         if (preg_match('/^\(.+\)$/', $type)) {
-            return [
-                'native' => '',
-                'doc' => 'mixed'
-            ];
+            $typeInfo = $this->createUnionTypeInfo(substr($type, 1, -1));
+            return $nullable ? $this->makeNullableType($typeInfo) : $typeInfo;
         }
         if (strpos($type, '::') !== false) {
             return [
@@ -452,6 +457,12 @@ class InterfaceGenerator {
                 'doc' => $this->createTypeInfo($match[1])['doc'] . '[]'
             ];
         }
+        if (preg_match('/^(Promise|ReadableStream)<.+>$/i', $type)) {
+            return [
+                'native' => 'object',
+                'doc' => 'object'
+            ];
+        }
         
         $native = $this->mapNativeType($type);
         $doc = $this->mapDocType($type, $native);
@@ -460,6 +471,23 @@ class InterfaceGenerator {
             'doc' => $doc
         ];
         return $nullable ? $this->makeNullableType($typeInfo) : $typeInfo;
+    }
+    
+    /**
+     * @return array<string,string>
+     */
+    private function createUnionTypeInfo(string $type): array {
+        $native = null;
+        $doc = '';
+        foreach (preg_split('/\s+or\s+/i', $type) as $singleType) {
+            $typeInfo = $this->createTypeInfo($singleType);
+            $native = $native === null ? $typeInfo['native'] : $this->mergeNativeType($native, $typeInfo['native']);
+            $doc = $this->mergeDocTypes($doc, $typeInfo['doc']);
+        }
+        return [
+            'native' => $native ?? '',
+            'doc' => $doc !== '' ? $doc : 'mixed'
+        ];
     }
     
     private function mapNativeType(string $type): string {
@@ -472,6 +500,9 @@ class InterfaceGenerator {
             case 'AbstractView':
             case 'ArrayBuffer':
             case 'ArrayBufferView':
+            case 'BufferSource':
+            case 'ReadableStream':
+            case 'Uint8Array':
             case 'object':
                 return 'object';
             case 'Document':
@@ -504,6 +535,7 @@ class InterfaceGenerator {
             case 'NodeList':
             case 'NamedNodeMap':
                 return '\DOMNode';
+            case 'DOMException':
             case 'DOMError':
                 return '\DOMException';
             case 'Date':
@@ -515,6 +547,7 @@ class InterfaceGenerator {
             case 'boolean':
                 return 'bool';
             case 'Function':
+            case 'EventHandler':
             case 'EventListener':
                 return 'callable';
             case 'double':
@@ -546,6 +579,8 @@ class InterfaceGenerator {
         switch ($type) {
             case 'any':
                 return 'mixed';
+            case 'MediaSource':
+                return 'resource';
             case 'void':
             case 'undefined':
                 return 'void';
@@ -642,6 +677,9 @@ class InterfaceGenerator {
      */
     private function renderMethod(array $method, bool $forClass): string {
         $desc = [];
+        if ($this->hasResourceParameter($method)) {
+            $desc[] = '@noinspection PhpMissingParamTypeInspection';
+        }
         foreach ($method['params'] as $param) {
             $desc[] = sprintf('@param %s $%s', $this->formatDocType($param['doc']), $param['name']);
         }
@@ -656,6 +694,18 @@ class InterfaceGenerator {
         }
         $returnType = $method['returnNative'] !== '' ? ': ' . $this->renderNativeType($method['returnNative'], $forClass) : '';
         return $comment . sprintf('public%s function %s(%s)%s;', $static, $method['name'], implode(', ', $params), $returnType);
+    }
+    
+    /**
+     * @param array<string,mixed> $method
+     */
+    private function hasResourceParameter(array $method): bool {
+        foreach ($method['params'] as $param) {
+            if (in_array('resource', explode('|', $param['doc']), true)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     /**
@@ -825,6 +875,7 @@ class InterfaceGenerator {
             'mixed',
             'null',
             'object',
+            'resource',
             'string',
             'true',
             'void'

@@ -5,7 +5,7 @@ namespace w3c;
 /**
  * XMLHttpRequestUpload
  *
- * @see https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#xmlhttprequestupload
+ * @see https://www.w3.org/TR/2014/WD-XMLHttpRequest-20140130/#xmlhttprequestupload
  */
 
 interface XMLHttpRequestUpload extends XMLHttpRequestEventTarget {

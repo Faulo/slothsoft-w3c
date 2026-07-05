@@ -6,7 +6,7 @@ use w3c\dom\EventTarget;
 /**
  * XMLHttpRequestEventTarget
  *
- * @see https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#xmlhttprequesteventtarget
+ * @see https://www.w3.org/TR/2014/WD-XMLHttpRequest-20140130/#xmlhttprequesteventtarget
  */
 
 interface XMLHttpRequestEventTarget extends EventTarget {
