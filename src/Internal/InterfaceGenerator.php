@@ -304,15 +304,11 @@ class InterfaceGenerator {
         if ($current === null) {
             assert($method !== null);
             $method['default'] = $method['default'] ?? 'null';
-            $method['native'] = '';
-            $method['doc'] = $this->mergeDocTypes($method['doc'], 'null');
-            return $method;
+            return $this->makeNullableType($method);
         }
         if ($method === null) {
             $current['default'] = $current['default'] ?? 'null';
-            $current['native'] = '';
-            $current['doc'] = $this->mergeDocTypes($current['doc'], 'null');
-            return $current;
+            return $this->makeNullableType($current);
         }
         return [
             'name' => $current['name'],

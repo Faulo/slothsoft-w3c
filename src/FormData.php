@@ -17,5 +17,5 @@ interface FormData {
      * @param ?string $filename
      * @return void
      */
-    public function append(string $name, $value, $filename = null): void;
+    public function append(string $name, $value, ?string $filename = null): void;
 }
