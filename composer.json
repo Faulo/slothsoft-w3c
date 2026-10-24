@@ -15,7 +15,8 @@
         "ext-libxml": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "~9.6.23"
+        "phpstan/phpstan": "^2.3.2",
+        "phpunit/phpunit": "~9.6.34"
     },
     "autoload": {
         "psr-4": {
@@ -31,13 +32,15 @@
             "w3c\\": "tests"
         }
     },
-    "scripts": {
-        "create-interfaces": "php scripts/create-interfaces.php"
-    },
     "extra": {
         "branch-alias": {
             "dev-main": "1.3.x-dev"
         }
     },
-    "homepage": "http://farah.slothsoft.net/modules/w3c"
+    "homepage": "https://faulo.github.io/slothsoft-w3c/",
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    }
 }
