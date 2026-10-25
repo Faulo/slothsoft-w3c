@@ -77,7 +77,6 @@ class InterfaceGenerator {
         libxml_use_internal_errors($previousUseInternalErrors);
         
         foreach ($doc->getElementsByTagName('pre') as $pre) {
-            assert($pre instanceof DOMElement);
             foreach ($this->extractInterfaceBlocks($pre->textContent) as $block) {
                 $href = $this->isPartialInterface($block) ? $this->sourceURI : $this->createHref($doc, $pre, $this->extractInterfaceName($block));
                 $this->createInterface($block, $href);
@@ -167,7 +166,7 @@ class InterfaceGenerator {
         }
         $interface = [
             'name' => $currentInterface,
-            'parent' => isset($match[3]) ? trim($match[3]) : '',
+            'parent' => trim($match[3]),
             'href' => $href,
             'const' => [],
             'methods' => []
@@ -655,7 +654,7 @@ class InterfaceGenerator {
                 continue;
             }
             if (strpos($singleType, self::NAMESPACE_SEPARATOR) === 0) {
-                $className = substr($singleType, 1);
+                $className = (string) substr($singleType, 1);
                 $uses[$className] = $className;
                 continue;
             }
