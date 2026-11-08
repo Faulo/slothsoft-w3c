@@ -6,6 +6,7 @@ namespace w3c\Internal;
 use DOMDocument;
 use DOMElement;
 use DOMXPath;
+use RuntimeException;
 
 class InterfaceGenerator {
     
@@ -198,7 +199,11 @@ class InterfaceGenerator {
         
         $declarations = [];
         foreach (explode(';', $body) as $declaration) {
-            $declaration = trim(preg_replace('/\s+/', ' ', $declaration));
+            $declaration = preg_replace('/\s+/', ' ', $declaration);
+            if ($declaration === null) {
+                throw new RuntimeException('Failed to normalize declaration whitespace: ' . preg_last_error());
+            }
+            $declaration = trim($declaration);
             if ($declaration !== '') {
                 $declarations[] = $declaration;
             }
@@ -210,7 +215,11 @@ class InterfaceGenerator {
      * @param array<string,mixed> $interface
      */
     private function addDeclaration(array &$interface, string $declaration): void {
-        $declaration = trim(preg_replace('/\[[^]]+]\s*/', '', $declaration));
+        $declaration = preg_replace('/\[[^]]+]\s*/', '', $declaration);
+        if ($declaration === null) {
+            throw new RuntimeException('Failed to remove declaration attributes: ' . preg_last_error());
+        }
+        $declaration = trim($declaration);
         if ($declaration === '' || strpos($declaration, 'constructor(') === 0 || strpos($declaration, 'callback ') === 0) {
             return;
         }
@@ -342,7 +351,11 @@ class InterfaceGenerator {
     private function createParam(string $code): array {
         $paramList = [];
         foreach ($this->splitCommaSeparated($code) as $paramCode) {
-            $paramCode = trim(preg_replace('/\[[^]]+]\s*/', '', $paramCode));
+            $paramCode = preg_replace('/\[[^]]+]\s*/', '', $paramCode);
+            if ($paramCode === null) {
+                throw new RuntimeException('Failed to remove parameter attributes: ' . preg_last_error());
+            }
+            $paramCode = trim($paramCode);
             if ($paramCode === '') {
                 continue;
             }
@@ -429,7 +442,11 @@ class InterfaceGenerator {
      * @return array<string,string>
      */
     private function createTypeInfo(string $type): array {
-        $type = trim(preg_replace('/\s+/', ' ', $type));
+        $type = preg_replace('/\s+/', ' ', $type);
+        if ($type === null) {
+            throw new RuntimeException('Failed to normalize type whitespace: ' . preg_last_error());
+        }
+        $type = trim($type);
         $type = preg_replace('/\s*<\s*/', '<', $type);
         $type = preg_replace('/\s*>\s*/', '>', (string) $type);
         assert(is_string($type));
@@ -478,7 +495,11 @@ class InterfaceGenerator {
     private function createUnionTypeInfo(string $type): array {
         $native = null;
         $doc = '';
-        foreach (preg_split('/\s+or\s+/i', $type) as $singleType) {
+        $types = preg_split('/\s+or\s+/i', $type);
+        if ($types === false) {
+            throw new RuntimeException('Failed to split union type: ' . preg_last_error());
+        }
+        foreach ($types as $singleType) {
             $typeInfo = $this->createTypeInfo($singleType);
             $native = $native === null ? $typeInfo['native'] : $this->mergeNativeType($native, $typeInfo['native']);
             $doc = $this->mergeDocTypes($doc, $typeInfo['doc']);
@@ -588,6 +609,9 @@ class InterfaceGenerator {
         }
     }
     
+    /**
+     * @param array<string,mixed> $interface
+     */
     private function renderInterface(array $interface): string {
         $uses = $this->createInterfaceUses($interface);
         $codeList = [

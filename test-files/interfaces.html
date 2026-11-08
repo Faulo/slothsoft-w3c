@@ -5,6 +5,8 @@
 <pre>
 interface Plain {
     void reset();
+    [Example] readonly attribute DOMString label;
+    void configure((DOMString or long) value, [Example] optional unsigned long count);
 };
 
 interface Inherited : Event {
